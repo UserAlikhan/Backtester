@@ -201,6 +201,30 @@ src/simple_moving_average.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s
 .PHONY : src/simple_moving_average.cpp.s
 
+src/statistic.o: src/statistic.cpp.o
+.PHONY : src/statistic.o
+
+# target to build an object file
+src/statistic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.o
+.PHONY : src/statistic.cpp.o
+
+src/statistic.i: src/statistic.cpp.i
+.PHONY : src/statistic.i
+
+# target to preprocess a source file
+src/statistic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.i
+.PHONY : src/statistic.cpp.i
+
+src/statistic.s: src/statistic.cpp.s
+.PHONY : src/statistic.s
+
+# target to generate assembly for a file
+src/statistic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.s
+.PHONY : src/statistic.cpp.s
+
 src/trade.o: src/trade.cpp.o
 .PHONY : src/trade.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/simple_moving_average.o"
 	@echo "... src/simple_moving_average.i"
 	@echo "... src/simple_moving_average.s"
+	@echo "... src/statistic.o"
+	@echo "... src/statistic.i"
+	@echo "... src/statistic.s"
 	@echo "... src/trade.o"
 	@echo "... src/trade.i"
 	@echo "... src/trade.s"

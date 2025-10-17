@@ -7,8 +7,10 @@ SMA::SMA(const std::vector<Candle>& candleData, int period1, int period2)
 
 std::vector<double> SMA::calculate() {
     std::vector<double> result;
+    std::vector<TradeResult> tradeResults;
     double balance = 5000.0;
-    int maxLossPercentage = 25;
+    int maxLossPercentage = 5;
+    int numberOfTrades = 0;
 
     if (candleData.size() < std::max(period1, period2)) {
         return result;
@@ -42,10 +44,9 @@ std::vector<double> SMA::calculate() {
 
         // Check if lines crossed each other
         if (sma1.size() > 1 && sma2.size() > 1) {
-            double prevSma1 = sma1[sma1.size() - 2];
-            double prevSma2 = sma2[sma2.size() - 2];
-
             // when we open a trade we have to track price movements, because we have a stop loss
+
+            // DEATH CROSS: SHORT TRADE
             if (isInDeathCross && entryPrice != 0.0 && closePrice == 0.0) {
                 double difference = candleData[i].close - entryPrice;
                 // DEATH CROSS, we have loss when price goes up
@@ -57,14 +58,17 @@ std::vector<double> SMA::calculate() {
                         // close the trade
                         Trade trade(TradeType::SHORT, balance, balance * 0.35, entryPrice, candleData[i].close);
                         double newBalance = trade.result();
+                        // save trade result
+                        tradeResults.push_back({trade, newBalance - balance});
 
-                        std::cout << "\nDeath Cross Trade WAS CLOSED BY STOP LOSS: %: " << currentLoss << " $: " << newBalance - balance << std::endl;
+                        std::cout << "\nDeath Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
                         balance = newBalance;
 
                         entryPrice = 0.0;
                         closePrice = 0.0;
                         isInDeathCross = false;
                         isInGoldenCross = false;
+                        numberOfTrades++;
                     }
                 }
             // GOLDEN CROSS: LONG TRADE
@@ -79,21 +83,27 @@ std::vector<double> SMA::calculate() {
                         // close the trade
                         Trade trade(TradeType::LONG, balance, balance * 0.35, entryPrice, candleData[i].close);
                         double newBalance = trade.result();
+                        // save trade result
+                        tradeResults.push_back({trade, newBalance - balance});
 
-                        std::cout << "\nGolden Cross Trade WAS CLOSED BY STOP LOSS: %: " << currentLoss << " $: " << newBalance - balance << std::endl;
+                        std::cout << "\nGolden Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
                         balance = newBalance;
 
                         entryPrice = 0.0;
                         closePrice = 0.0;
                         isInDeathCross = false;
                         isInGoldenCross = false;
+                        numberOfTrades++;
                     }
                 }
             }
 
+            double prevSma1 = sma1[sma1.size() - 2];
+            double prevSma2 = sma2[sma2.size() - 2];
+            
             // Death cross
             if (prevSma1 > prevSma2 && sma1Value < sma2Value) {
-                // if we don't have an open trade and it is death cross, open one
+                // if we don't have an open death cross trade, open one
                 if (!isInDeathCross) {
                     // if we have an open trade (golden cross / LONG) close it
                     if (entryPrice != 0.0) {
@@ -102,6 +112,8 @@ std::vector<double> SMA::calculate() {
                         // execute the trade
                         Trade trade(TradeType::LONG, balance, balance * 0.35, entryPrice, closePrice);
                         double newBalance = trade.result();
+                        // save trade result
+                        tradeResults.push_back({trade, newBalance - balance});
                         
                         std::cout << "\nGolden Cross Trade result: " << newBalance - balance << std::endl;
                         balance = newBalance;
@@ -112,8 +124,10 @@ std::vector<double> SMA::calculate() {
                         // clean the values
                         entryPrice = 0.0;
                         closePrice = 0.0;
+                        numberOfTrades++;
                     }
 
+                    // open new Death cross trade
                     std::cout << "DATE: " << candleData[i].timestamp 
                         <<  " 50 SMA was: " << prevSma1 
                         << " 200 SMA was: " << prevSma2
@@ -122,7 +136,6 @@ std::vector<double> SMA::calculate() {
                         << " IT IS A DEATH CROSS "
                         << std::endl;
 
-                    // execute new trade since it is a death cross
                     entryPrice = candleData[i].close;
                     isInDeathCross = true;
                     isInGoldenCross = false;
@@ -138,6 +151,8 @@ std::vector<double> SMA::calculate() {
                         // close the trade
                         Trade trade(TradeType::SHORT, balance, balance * 0.35, entryPrice, closePrice);
                         double newBalance = trade.result();
+                        // save trade result
+                        tradeResults.push_back({trade, newBalance - balance});
                         
                         std::cout << "\nDeath Cross Trade result: " << newBalance - balance << std::endl;
                         balance = newBalance;
@@ -148,8 +163,10 @@ std::vector<double> SMA::calculate() {
                         // clean the values
                         entryPrice = 0.0;
                         closePrice = 0.0;
+                        numberOfTrades++;
                     }
 
+                    // and open new golden cross trade
                     std::cout << "DATE: " << candleData[i].timestamp 
                         << " 50 SMA was: " << prevSma1
                         << " 200 SMA was: " << prevSma2
@@ -158,7 +175,6 @@ std::vector<double> SMA::calculate() {
                         << " IT IS A GOLDEN CROSS "
                         << std::endl;
 
-                    // execute new trade since it is a death cross
                     entryPrice = candleData[i].close;
                     isInDeathCross = false;
                     isInGoldenCross = true;
@@ -166,6 +182,9 @@ std::vector<double> SMA::calculate() {
             }
         }
     }
-    std::cout << "TRADE RESULTS: " << balance << std::endl;
+    std::cout << "TRADE RESULTS: " << balance << " number of trades: " << numberOfTrades << std::endl;
+    Statistic stat = Statistic::calculate(tradeResults);
+    stat.print();
+
     return result;
 }

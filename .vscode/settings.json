@@ -48,6 +48,7 @@
         "algorithm": "cpp",
         "iostream": "cpp",
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "__assertion_handler": "cpp"
     }
 }

@@ -1,6 +1,6 @@
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o: \
-  /Users/alikhanataniyazov/Projects/BackTester/src/simple_moving_average.cpp \
-  /Users/alikhanataniyazov/Projects/BackTester/include/simple_moving_average.h \
+CMakeFiles/backtester.dir/src/statistic.cpp.o: \
+  /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp \
+  /Users/alikhanataniyazov/Projects/BackTester/include/statistic.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -794,7 +794,5 @@ CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/candle.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/trade_result.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/statistic.h
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h

@@ -796,4 +796,6 @@ CMakeFiles/backtester.dir/src/main.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/include/csv_loader.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/simple_moving_average.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h \
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade_result.h \
+  /Users/alikhanataniyazov/Projects/BackTester/include/statistic.h
