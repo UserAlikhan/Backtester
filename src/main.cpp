@@ -33,15 +33,11 @@ int main() {
     }
 
     if (strategy == "SMA") {
-        std::cout << "Calculating SMA..." << std::endl;
+        std::cout << "\nCalculating SMA...\n" << std::endl;
 
-        SMA sma50(candles, 50);
+        SMA sma(candles, 50, 200);
 
-        std::vector<double> sma50Calc = sma50.calculate();
-
-        for (int i = 0; i < sma50Calc.size(); i++) {
-            std::cout << "Index: " << i << " value: " << sma50Calc[i] << std::endl;
-        }
+        sma.calculate();
     }
 
     return 0;
