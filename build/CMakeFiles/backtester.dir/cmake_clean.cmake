@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/backtester.dir/src/main.cpp.o.d"
   "CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o"
   "CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o.d"
+  "CMakeFiles/backtester.dir/src/trade.cpp.o"
+  "CMakeFiles/backtester.dir/src/trade.cpp.o.d"
   "backtester"
   "backtester.pdb"
 )

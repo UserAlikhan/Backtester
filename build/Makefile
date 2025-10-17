@@ -201,6 +201,30 @@ src/simple_moving_average.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s
 .PHONY : src/simple_moving_average.cpp.s
 
+src/trade.o: src/trade.cpp.o
+.PHONY : src/trade.o
+
+# target to build an object file
+src/trade.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.o
+.PHONY : src/trade.cpp.o
+
+src/trade.i: src/trade.cpp.i
+.PHONY : src/trade.i
+
+# target to preprocess a source file
+src/trade.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.i
+.PHONY : src/trade.cpp.i
+
+src/trade.s: src/trade.cpp.s
+.PHONY : src/trade.s
+
+# target to generate assembly for a file
+src/trade.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.s
+.PHONY : src/trade.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +243,9 @@ help:
 	@echo "... src/simple_moving_average.o"
 	@echo "... src/simple_moving_average.i"
 	@echo "... src/simple_moving_average.s"
+	@echo "... src/trade.o"
+	@echo "... src/trade.i"
+	@echo "... src/trade.s"
 .PHONY : help
 
 

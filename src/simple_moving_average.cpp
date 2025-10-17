@@ -7,6 +7,7 @@ SMA::SMA(const std::vector<Candle>& candleData, int period1, int period2)
 
 std::vector<double> SMA::calculate() {
     std::vector<double> result;
+    double balance = 5000.0;
 
     if (candleData.size() < std::max(period1, period2)) {
         return result;
@@ -25,6 +26,7 @@ std::vector<double> SMA::calculate() {
 
     std::vector<double> sma1, sma2;
     bool isInDeathCross = false, isInGoldenCross = false;
+    double entryPrice = 0.0, closePrice = 0.0;
 
     // move forward and calculate SMA
     for (int i = std::max(period1, period2); i < candleData.size(); ++i) {
@@ -53,10 +55,25 @@ std::vector<double> SMA::calculate() {
                         << " IT IS A DEATH CROSS "
                         << std::endl;
 
+                    // if we have an open trade (golden cross / LONG) close it
+                    if (entryPrice != 0.0) {
+                        closePrice = candleData[i].close;
+
+                        // execute the trade
+                        Trade trade(TradeType::LONG, 500, entryPrice, closePrice);
+                        double result = trade.result();
+                        balance += result;
+                        std::cout << "Death Cross Trade result: " << result << std::endl;
+
+                        // clean the values
+                        entryPrice = 0.0;
+                        closePrice = 0.0;
+                    }
+
+                    // execute new trade since it is a death cross
+                    entryPrice = candleData[i].close;
                     isInDeathCross = true;
                     isInGoldenCross = false;
-
-                    continue;
                 }
             // Golden cross
             } else if (prevSma1 < prevSma2 && sma1Value > sma2Value) {
@@ -69,14 +86,29 @@ std::vector<double> SMA::calculate() {
                         << " IT IS A GOLDEN CROSS "
                         << std::endl;
 
+                    // if we have an open trade (Death Cross / SHORT) close it
+                    if (entryPrice != 0.0) {
+                        closePrice = candleData[i].close;
+
+                        // execute the trade
+                        Trade trade(TradeType::SHORT, 500, entryPrice, closePrice);
+                        double result = trade.result();
+                        balance += result;
+                        std::cout << "Golden Cross Trade result: " << result << std::endl;
+
+                        // clean the values
+                        entryPrice = 0.0;
+                        closePrice = 0.0;
+                    }
+
+                    // execute new trade since it is a death cross
+                    entryPrice = candleData[i].close;
                     isInDeathCross = false;
                     isInGoldenCross = true;
-
-                    continue;
                 }
             }
         }
     }
-
+    std::cout << "TRADE RESULTS: " << balance << std::endl;
     return result;
 }

@@ -795,4 +795,5 @@ CMakeFiles/backtester.dir/src/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/csv_loader.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/candle.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/simple_moving_average.h
+  /Users/alikhanataniyazov/Projects/BackTester/include/simple_moving_average.h \
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h

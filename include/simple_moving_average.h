@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <candle.h>
+#include <trade.h>
 
 class SMA {
     private:

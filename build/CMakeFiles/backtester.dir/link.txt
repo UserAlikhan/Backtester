@@ -1,1 +1,1 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/backtester.dir/src/csv_loader.cpp.o CMakeFiles/backtester.dir/src/main.cpp.o CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o -o backtester
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/backtester.dir/src/csv_loader.cpp.o CMakeFiles/backtester.dir/src/main.cpp.o CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o CMakeFiles/backtester.dir/src/trade.cpp.o -o backtester
