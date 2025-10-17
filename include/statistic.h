@@ -3,7 +3,6 @@
 #include <vector>
 #include <trade_result.h>
 
-// TODO: Make Statistic as a class and make methods like calculate statistic and print statistic
 class Statistic {
     private:
         int totalNumberOfTrades;

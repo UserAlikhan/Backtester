@@ -29,9 +29,10 @@ Statistic Statistic::calculate(std::vector<TradeResult> tradeResults) {
 }
 
 void Statistic::print() {
+    std::cout << "Statistics: " << std::endl;
     std::cout << "totalNumOfTrades: " << totalNumberOfTrades 
-        << " numOfProfitableTrades: "  << numOfProfitableTrades
-        << " numOfLossTrades: "  << numOfLossTrades
-        << " gainAmount: "  << gainAmount
+        << "\nnumOfProfitableTrades: "  << numOfProfitableTrades
+        << "\nnumOfLossTrades: "  << numOfLossTrades
+        << "\ngainAmount: "  << gainAmount
         << std::endl;
 }
