@@ -55,7 +55,7 @@ void Trade::trackStopLoss(
                 // close the trade
                 Trade trade(tradeType, balance, balance * 0.35, entryPrice, close, maxLossPercentage);
                 double newBalance = trade.result();
-                // save trade result
+                // save trade result (gain / loss)
                 tradeResults.push_back({newBalance - balance});
 
                 if (tradeType == SHORT) {
@@ -63,7 +63,9 @@ void Trade::trackStopLoss(
                 } else if (tradeType == LONG) {
                     std::cout << "\nGolden Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
                 }
-                balance = newBalance;
+
+                // balance cannot be less than 0
+                balance = (newBalance > 0) ? newBalance : 0.0;
 
                 entryPrice = 0.0;
                 closePrice = 0.0;
@@ -92,6 +94,7 @@ void Trade::closeTrade(
             std::cout << "\nDeath Cross Trade result: " << newBalance - balance << std::endl;
         }
         
+        // balance cannot be less that 0
         balance = (newBalance > 0) ? newBalance : 0.0;
 
         // clean the values

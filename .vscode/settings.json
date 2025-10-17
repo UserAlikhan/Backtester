@@ -49,6 +49,10 @@
         "iostream": "cpp",
         "fstream": "cpp",
         "iomanip": "cpp",
-        "__assertion_handler": "cpp"
+        "__assertion_handler": "cpp",
+        "__config": "cpp",
+        "compare": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp"
     }
 }
