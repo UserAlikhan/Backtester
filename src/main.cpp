@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
-#include "csv_loader.cpp"
+#include <vector>
+#include <csv_loader.h>
+#include <simple_moving_average.h>
 
 int main() {
     const std::string filePathBase = "data/";
@@ -16,7 +18,7 @@ int main() {
     
     std::cout << "Loading data..." << std::endl;
 
-    std::vector<Candle> candles = csvLoader.load(500);
+    std::vector<Candle> candles = csvLoader.load();
 
     for (int i = 0; i < candles.size(); i++) {
         Candle candle = candles[i];
@@ -28,6 +30,18 @@ int main() {
             << " Adjusted Close: " << candle.adjClose
             << " Volume: " << candle.volume
             << std::endl;
+    }
+
+    if (strategy == "SMA") {
+        std::cout << "Calculating SMA..." << std::endl;
+
+        SMA sma50(candles, 50);
+
+        std::vector<double> sma50Calc = sma50.calculate();
+
+        for (int i = 0; i < sma50Calc.size(); i++) {
+            std::cout << "Index: " << i << " value: " << sma50Calc[i] << std::endl;
+        }
     }
 
     return 0;
