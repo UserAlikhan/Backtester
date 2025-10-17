@@ -9,11 +9,12 @@ enum TradeType {
 class Trade {
     private:
         TradeType tradeType;
+        double currentBalance;
         double transactionAmount;
         double entryPrice;
         double closePrice;
     
     public:
-        Trade(TradeType tradeType, double transactionAmount, double entryPrice, double closePrice);
+        Trade(TradeType tradeType, double currentBalance, double transactionAmount, double entryPrice, double closePrice);
         double result();
 };
