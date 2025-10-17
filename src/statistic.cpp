@@ -9,7 +9,7 @@ numOfProfitableTrades(numOfProfitableTrades),
 numOfLossTrades(numOfLossTrades),
 gainAmount(gainAmount) {}
 
-Statistic Statistic::calculate(std::vector<TradeResult> tradeResults) {
+Statistic Statistic::calculate(std::vector<TradeResult>& tradeResults) {
     int totalNumOfTrades = tradeResults.size();
     int numOfProfitableTrades = 0, numOfLossTrades = 0, gainAmount = 0;
 

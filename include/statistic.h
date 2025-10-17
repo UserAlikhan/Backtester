@@ -15,6 +15,6 @@ class Statistic {
             int totalNumberOfTrades, int numOfProfitableTrades, 
             int numOfLossTrades, int gainAmount
         );
-        static Statistic calculate(std::vector<TradeResult> tradeResults);
+        static Statistic calculate(std::vector<TradeResult>& tradeResults);
         void print(); 
 };

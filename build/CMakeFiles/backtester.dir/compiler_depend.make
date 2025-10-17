@@ -3215,7 +3215,6 @@ CMakeFiles/backtester.dir/src/statistic.cpp.o: /Users/alikhanataniyazov/Projects
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/statistic.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/include/trade_result.h
 
 CMakeFiles/backtester.dir/src/trade.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trade.cpp \
@@ -4012,7 +4011,8 @@ CMakeFiles/backtester.dir/src/trade.cpp.o: /Users/alikhanataniyazov/Projects/Bac
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade.h \
+  /Users/alikhanataniyazov/Projects/BackTester/include/trade_result.h
 
 
 /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp:
