@@ -129,6 +129,30 @@ backtester/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/build
 .PHONY : backtester/fast
 
+src/core/backtester.o: src/core/backtester.cpp.o
+.PHONY : src/core/backtester.o
+
+# target to build an object file
+src/core/backtester.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/backtester.cpp.o
+.PHONY : src/core/backtester.cpp.o
+
+src/core/backtester.i: src/core/backtester.cpp.i
+.PHONY : src/core/backtester.i
+
+# target to preprocess a source file
+src/core/backtester.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/backtester.cpp.i
+.PHONY : src/core/backtester.cpp.i
+
+src/core/backtester.s: src/core/backtester.cpp.s
+.PHONY : src/core/backtester.s
+
+# target to generate assembly for a file
+src/core/backtester.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/backtester.cpp.s
+.PHONY : src/core/backtester.cpp.s
+
 src/core/testSetup.o: src/core/testSetup.cpp.o
 .PHONY : src/core/testSetup.o
 
@@ -273,6 +297,78 @@ src/statistics/statistic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s
 .PHONY : src/statistics/statistic.cpp.s
 
+src/stopLoss/fixedStopLoss.o: src/stopLoss/fixedStopLoss.cpp.o
+.PHONY : src/stopLoss/fixedStopLoss.o
+
+# target to build an object file
+src/stopLoss/fixedStopLoss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o
+.PHONY : src/stopLoss/fixedStopLoss.cpp.o
+
+src/stopLoss/fixedStopLoss.i: src/stopLoss/fixedStopLoss.cpp.i
+.PHONY : src/stopLoss/fixedStopLoss.i
+
+# target to preprocess a source file
+src/stopLoss/fixedStopLoss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.i
+.PHONY : src/stopLoss/fixedStopLoss.cpp.i
+
+src/stopLoss/fixedStopLoss.s: src/stopLoss/fixedStopLoss.cpp.s
+.PHONY : src/stopLoss/fixedStopLoss.s
+
+# target to generate assembly for a file
+src/stopLoss/fixedStopLoss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.s
+.PHONY : src/stopLoss/fixedStopLoss.cpp.s
+
+src/stopLoss/stopLoss.o: src/stopLoss/stopLoss.cpp.o
+.PHONY : src/stopLoss/stopLoss.o
+
+# target to build an object file
+src/stopLoss/stopLoss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o
+.PHONY : src/stopLoss/stopLoss.cpp.o
+
+src/stopLoss/stopLoss.i: src/stopLoss/stopLoss.cpp.i
+.PHONY : src/stopLoss/stopLoss.i
+
+# target to preprocess a source file
+src/stopLoss/stopLoss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.i
+.PHONY : src/stopLoss/stopLoss.cpp.i
+
+src/stopLoss/stopLoss.s: src/stopLoss/stopLoss.cpp.s
+.PHONY : src/stopLoss/stopLoss.s
+
+# target to generate assembly for a file
+src/stopLoss/stopLoss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.s
+.PHONY : src/stopLoss/stopLoss.cpp.s
+
+src/stopLoss/trailingStopLoss.o: src/stopLoss/trailingStopLoss.cpp.o
+.PHONY : src/stopLoss/trailingStopLoss.o
+
+# target to build an object file
+src/stopLoss/trailingStopLoss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o
+.PHONY : src/stopLoss/trailingStopLoss.cpp.o
+
+src/stopLoss/trailingStopLoss.i: src/stopLoss/trailingStopLoss.cpp.i
+.PHONY : src/stopLoss/trailingStopLoss.i
+
+# target to preprocess a source file
+src/stopLoss/trailingStopLoss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.i
+.PHONY : src/stopLoss/trailingStopLoss.cpp.i
+
+src/stopLoss/trailingStopLoss.s: src/stopLoss/trailingStopLoss.cpp.s
+.PHONY : src/stopLoss/trailingStopLoss.s
+
+# target to generate assembly for a file
+src/stopLoss/trailingStopLoss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.s
+.PHONY : src/stopLoss/trailingStopLoss.cpp.s
+
 src/trade/trade.o: src/trade/trade.cpp.o
 .PHONY : src/trade/trade.o
 
@@ -306,6 +402,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... backtester"
+	@echo "... src/core/backtester.o"
+	@echo "... src/core/backtester.i"
+	@echo "... src/core/backtester.s"
 	@echo "... src/core/testSetup.o"
 	@echo "... src/core/testSetup.i"
 	@echo "... src/core/testSetup.s"
@@ -324,6 +423,15 @@ help:
 	@echo "... src/statistics/statistic.o"
 	@echo "... src/statistics/statistic.i"
 	@echo "... src/statistics/statistic.s"
+	@echo "... src/stopLoss/fixedStopLoss.o"
+	@echo "... src/stopLoss/fixedStopLoss.i"
+	@echo "... src/stopLoss/fixedStopLoss.s"
+	@echo "... src/stopLoss/stopLoss.o"
+	@echo "... src/stopLoss/stopLoss.i"
+	@echo "... src/stopLoss/stopLoss.s"
+	@echo "... src/stopLoss/trailingStopLoss.o"
+	@echo "... src/stopLoss/trailingStopLoss.i"
+	@echo "... src/stopLoss/trailingStopLoss.s"
 	@echo "... src/trade/trade.o"
 	@echo "... src/trade/trade.i"
 	@echo "... src/trade/trade.s"

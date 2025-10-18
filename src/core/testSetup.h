@@ -5,12 +5,13 @@
 #include "csvLoader.h"
 #include "indicator.h"
 #include "ema.h"
+#include "backtester.h"
 
 class TestSetup {
     private:
         std::vector<Candle*> candles;
         std::vector<Indicator*> indicators;
-        // Backtester backtest;
+        Backtester* backtester;
     
     public:
         TestSetup();
@@ -20,5 +21,5 @@ class TestSetup {
         
         void addIndicator();
 
-        // void initializeBacktester();
+        void initializeBacktester();
 };

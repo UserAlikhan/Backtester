@@ -1,6 +1,6 @@
-CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: \
-  /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp \
-  /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.h \
+CMakeFiles/backtester.dir/src/core/backtester.cpp.o: \
+  /Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.cpp \
+  /Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h \
@@ -754,9 +754,7 @@ CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
-  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
@@ -797,10 +795,9 @@ CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade_result.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h

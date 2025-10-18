@@ -15,6 +15,8 @@ TestSetup::~TestSetup() {
         delete ind;
     }
 
+    delete backtester;
+
     std::cout << "TestSetup memory was cleaned." << std::endl;
 }
 
@@ -52,4 +54,17 @@ void TestSetup::addIndicator() {
 
         std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
     }
+}
+
+void TestSetup::initializeBacktester() {
+    std::cout << "Running backtest..." << std::endl;
+
+    std::cout << "Your indicators: ";
+    for (auto indc : indicators) {
+        std::cout << indc->getName();
+    }
+    std::cout << std::endl;
+
+    Backtester* backtester = new Backtester();
+    backtester->run(candles, indicators);
 }

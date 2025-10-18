@@ -9,7 +9,7 @@ void EMA::calculate(std::vector<Candle*>& candles) {
     std::vector<double> sma1, sma2;
 
     // check if there are enough data points
-    if (candles.size() < std::max(period1, period2)) { 
+    if ((int)candles.size() < std::max(period1, period2)) { 
         std::cout << "No data provided" << std::endl;
         return; 
     }
@@ -30,7 +30,7 @@ void EMA::calculate(std::vector<Candle*>& candles) {
     sma2.push_back(sumPeriod2 / period2);
 
     // calculate for all data points
-    for(int i = std::max(period1, period2); i < candles.size(); i++) {
+    for(size_t i = std::max(period1, period2); i < candles.size(); i++) {
         sumPeriod1 += candles[i]->close - candles[i - period1]->close;
         sumPeriod2 += candles[i]->close - candles[i - period2]->close;
 
@@ -45,15 +45,15 @@ void EMA::calculate(std::vector<Candle*>& candles) {
     std::cout << "Data size: " << candles.size() << " Period 1 size: " << dataPeriod1.size() << " Period 2 size: " << dataPeriod2.size() << std::endl;
 }
 
-std::vector<std::pair<InterSectionEnum, int>> EMA::findIntersections() {
-    std::vector<std::pair<InterSectionEnum, int>> result;
+std::vector<std::pair<IntersectionEnum, int>> EMA::findIntersections() {
+    std::vector<std::pair<IntersectionEnum, int>> result;
 
-    for (int i = 1; i < dataPeriod1.size(); i++) {
+    for (size_t i = 1; i < dataPeriod1.size(); i++) {
         // Golden cross
         if (dataPeriod2[i - 1] > dataPeriod1[i - 1] && dataPeriod1[i] > dataPeriod2[i]) {
-            result.push_back({InterSectionEnum::GOLDEN_CROSS, i});
+            result.push_back({IntersectionEnum::GOLDEN_CROSS, i});
         } else if (dataPeriod1[i - 1] > dataPeriod2[i - 1] && dataPeriod2[i] > dataPeriod1[i]) {
-            result.push_back({InterSectionEnum::DEATH_CROSS, i});
+            result.push_back({IntersectionEnum::DEATH_CROSS, i});
         }
     }
 

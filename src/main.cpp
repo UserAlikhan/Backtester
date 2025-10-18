@@ -1,7 +1,4 @@
-#include <string>
 #include <iostream>
-#include <vector>
-#include <simple_moving_average.h>
 #include <testSetup.h>
 
 int main() {
@@ -10,6 +7,8 @@ int main() {
     testSetup.setCandles();
 
     testSetup.addIndicator();
+
+    testSetup.initializeBacktester();
 
     // if (strategy == "SMA") {
     //     std::string trStopAnswer;

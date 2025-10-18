@@ -1,13 +1,10 @@
 #pragma once
-#include <iostream>
 #include "indicator.h"
+#include "intersectionIndicator.h"
+#include "intersectionEnum.h"
+#include <iostream>
 
-enum InterSectionEnum {
-    DEATH_CROSS,
-    GOLDEN_CROSS,
-};
-
-class EMA : public Indicator {
+class EMA : public Indicator, public IntersectionIndicator {
     private:
         int period1;
         int period2;
@@ -23,5 +20,5 @@ class EMA : public Indicator {
         void calculate(std::vector<Candle*>& candles) override;
 
         // returns intersection type and intersection index from data
-        std::vector<std::pair<InterSectionEnum, int>> findIntersections();
+        std::vector<std::pair<IntersectionEnum, int>> findIntersections() override;
 };

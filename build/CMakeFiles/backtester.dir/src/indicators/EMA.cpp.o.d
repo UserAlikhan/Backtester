@@ -1,6 +1,7 @@
 CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -794,5 +795,6 @@ CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h
