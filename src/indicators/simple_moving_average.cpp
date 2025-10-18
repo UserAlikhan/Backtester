@@ -5,11 +5,10 @@
 SMA::SMA(const std::vector<Candle>& candleData, int period1, int period2) 
     : candleData(candleData), period1(period1), period2(period2) {}
 
-std::vector<double> SMA::calculate() {
+std::vector<double> SMA::calculate(double maxStopLossPercentage, double trailingStopPercentage = 0.0) {
     std::vector<double> result;
     std::vector<TradeResult> tradeResults;
     double balance = 5000.0;
-    int maxLossPercentage = 5;
 
     if (candleData.size() < std::max(period1, period2)) {
         return result;
@@ -47,10 +46,18 @@ std::vector<double> SMA::calculate() {
             TradeType tradeType;
             if (isInDeathCross) tradeType = TradeType::SHORT;
             else if (isInGoldenCross) tradeType = TradeType::LONG;
+            
+            // if we have an open trade and trailing stop specified
+            // if (trailingStopPercentage != 0.0) {
+            //     std::cout << "TR STOP" << std::endl;
+            //     Trade trade(tradeType, balance, balance * 0.35, entryPrice, 0.0, trailingStopPercentage);
+            //     trade.trackTrailingStop(isInDeathCross, isInGoldenCross, trade, entryPrice, closePrice, 
+            //         candleData[i].close, tradeType, balance, tradeResults);
+            // }
 
-            Trade::trackStopLoss(isInDeathCross, isInGoldenCross, 
+            Trade::trackStopLossSMA(isInDeathCross, isInGoldenCross, 
                 tradeType, entryPrice, closePrice, candleData[i].close, balance,
-                tradeResults, maxLossPercentage
+                tradeResults, maxStopLossPercentage
             );
 
             double prevSma1 = sma1[sma1.size() - 2];
@@ -63,7 +70,7 @@ std::vector<double> SMA::calculate() {
                     // if we have an open trade (golden cross / LONG) close it
                     Trade::closeTrade(
                         entryPrice, candleData[i].close, TradeType::LONG, 
-                        balance, maxLossPercentage, tradeResults
+                        balance, tradeResults
                     );
 
                     // open new Death cross trade
@@ -86,11 +93,10 @@ std::vector<double> SMA::calculate() {
                     // if we have an open trade (Death Cross / SHORT) close it
                     Trade::closeTrade(
                         entryPrice, candleData[i].close, TradeType::SHORT, 
-                        balance, maxLossPercentage, tradeResults
+                        balance, tradeResults
                     );
 
-                    // TODO: Take out trade open to a seprate method
-                    // and open new golden cross trade
+                    // open new golden cross trade
                     std::cout << "DATE: " << candleData[i].timestamp 
                         << " 50 SMA was: " << prevSma1
                         << " 200 SMA was: " << prevSma2

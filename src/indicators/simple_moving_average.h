@@ -16,5 +16,5 @@ class SMA {
         // constructor
         SMA(const std::vector<Candle>& candleData, int period, int period2);
         // loops over data, executes trades and calculates the result
-        std::vector<double> calculate();
+        std::vector<double> calculate(double maxStopLossPercentage, double trailingStopPercentage);
 };

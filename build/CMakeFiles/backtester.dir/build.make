@@ -72,24 +72,66 @@ include CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/codegen:
 .PHONY : CMakeFiles/backtester.dir/codegen
 
-CMakeFiles/backtester.dir/src/csv_loader.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/csv_loader.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/csv_loader.cpp
-CMakeFiles/backtester.dir/src/csv_loader.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/backtester.dir/src/csv_loader.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/csv_loader.cpp.o -MF CMakeFiles/backtester.dir/src/csv_loader.cpp.o.d -o CMakeFiles/backtester.dir/src/csv_loader.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/csv_loader.cpp
+CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp
+CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/backtester.dir/src/core/testSetup.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/core/testSetup.cpp.o -MF CMakeFiles/backtester.dir/src/core/testSetup.cpp.o.d -o CMakeFiles/backtester.dir/src/core/testSetup.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp
 
-CMakeFiles/backtester.dir/src/csv_loader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/csv_loader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/csv_loader.cpp > CMakeFiles/backtester.dir/src/csv_loader.cpp.i
+CMakeFiles/backtester.dir/src/core/testSetup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/core/testSetup.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp > CMakeFiles/backtester.dir/src/core/testSetup.cpp.i
 
-CMakeFiles/backtester.dir/src/csv_loader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/csv_loader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/csv_loader.cpp -o CMakeFiles/backtester.dir/src/csv_loader.cpp.s
+CMakeFiles/backtester.dir/src/core/testSetup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/core/testSetup.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp -o CMakeFiles/backtester.dir/src/core/testSetup.cpp.s
+
+CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp
+CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o -MF CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o.d -o CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp
+
+CMakeFiles/backtester.dir/src/data/csvLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/data/csvLoader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp > CMakeFiles/backtester.dir/src/data/csvLoader.cpp.i
+
+CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp -o CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s
+
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp
+
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp > CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i
+
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp -o CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s
+
+CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp
+CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp
+
+CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp > CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i
+
+CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp -o CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s
 
 CMakeFiles/backtester.dir/src/main.cpp.o: CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/src/main.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/main.cpp
 CMakeFiles/backtester.dir/src/main.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/backtester.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/backtester.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/main.cpp.o -MF CMakeFiles/backtester.dir/src/main.cpp.o.d -o CMakeFiles/backtester.dir/src/main.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/main.cpp
 
 CMakeFiles/backtester.dir/src/main.cpp.i: cmake_force
@@ -100,67 +142,57 @@ CMakeFiles/backtester.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/main.cpp -o CMakeFiles/backtester.dir/src/main.cpp.s
 
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/simple_moving_average.cpp
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o -MF CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o.d -o CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/simple_moving_average.cpp
+CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp
+CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o -MF CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o.d -o CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp
 
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/simple_moving_average.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/simple_moving_average.cpp > CMakeFiles/backtester.dir/src/simple_moving_average.cpp.i
+CMakeFiles/backtester.dir/src/statistics/statistic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/statistics/statistic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp > CMakeFiles/backtester.dir/src/statistics/statistic.cpp.i
 
-CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/simple_moving_average.cpp -o CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s
+CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp -o CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s
 
-CMakeFiles/backtester.dir/src/statistic.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/statistic.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp
-CMakeFiles/backtester.dir/src/statistic.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/backtester.dir/src/statistic.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/statistic.cpp.o -MF CMakeFiles/backtester.dir/src/statistic.cpp.o.d -o CMakeFiles/backtester.dir/src/statistic.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp
+CMakeFiles/backtester.dir/src/trade/trade.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/trade/trade.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp
+CMakeFiles/backtester.dir/src/trade/trade.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trade/trade.cpp.o -MF CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d -o CMakeFiles/backtester.dir/src/trade/trade.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp
 
-CMakeFiles/backtester.dir/src/statistic.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/statistic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp > CMakeFiles/backtester.dir/src/statistic.cpp.i
+CMakeFiles/backtester.dir/src/trade/trade.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trade/trade.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp > CMakeFiles/backtester.dir/src/trade/trade.cpp.i
 
-CMakeFiles/backtester.dir/src/statistic.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/statistic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp -o CMakeFiles/backtester.dir/src/statistic.cpp.s
-
-CMakeFiles/backtester.dir/src/trade.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/trade.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trade.cpp
-CMakeFiles/backtester.dir/src/trade.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/backtester.dir/src/trade.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trade.cpp.o -MF CMakeFiles/backtester.dir/src/trade.cpp.o.d -o CMakeFiles/backtester.dir/src/trade.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trade.cpp
-
-CMakeFiles/backtester.dir/src/trade.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trade.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trade.cpp > CMakeFiles/backtester.dir/src/trade.cpp.i
-
-CMakeFiles/backtester.dir/src/trade.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trade.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trade.cpp -o CMakeFiles/backtester.dir/src/trade.cpp.s
+CMakeFiles/backtester.dir/src/trade/trade.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trade/trade.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp -o CMakeFiles/backtester.dir/src/trade/trade.cpp.s
 
 # Object files for target backtester
 backtester_OBJECTS = \
-"CMakeFiles/backtester.dir/src/csv_loader.cpp.o" \
+"CMakeFiles/backtester.dir/src/core/testSetup.cpp.o" \
+"CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o" \
+"CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o" \
+"CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o" \
 "CMakeFiles/backtester.dir/src/main.cpp.o" \
-"CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o" \
-"CMakeFiles/backtester.dir/src/statistic.cpp.o" \
-"CMakeFiles/backtester.dir/src/trade.cpp.o"
+"CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" \
+"CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
 
 # External object files for target backtester
 backtester_EXTERNAL_OBJECTS =
 
-backtester: CMakeFiles/backtester.dir/src/csv_loader.cpp.o
+backtester: CMakeFiles/backtester.dir/src/core/testSetup.cpp.o
+backtester: CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o
+backtester: CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o
+backtester: CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o
 backtester: CMakeFiles/backtester.dir/src/main.cpp.o
-backtester: CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o
-backtester: CMakeFiles/backtester.dir/src/statistic.cpp.o
-backtester: CMakeFiles/backtester.dir/src/trade.cpp.o
+backtester: CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o
+backtester: CMakeFiles/backtester.dir/src/trade/trade.cpp.o
 backtester: CMakeFiles/backtester.dir/build.make
 backtester: CMakeFiles/backtester.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable backtester"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable backtester"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/backtester.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

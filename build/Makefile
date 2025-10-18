@@ -129,29 +129,101 @@ backtester/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/build
 .PHONY : backtester/fast
 
-src/csv_loader.o: src/csv_loader.cpp.o
-.PHONY : src/csv_loader.o
+src/core/testSetup.o: src/core/testSetup.cpp.o
+.PHONY : src/core/testSetup.o
 
 # target to build an object file
-src/csv_loader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/csv_loader.cpp.o
-.PHONY : src/csv_loader.cpp.o
+src/core/testSetup.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/testSetup.cpp.o
+.PHONY : src/core/testSetup.cpp.o
 
-src/csv_loader.i: src/csv_loader.cpp.i
-.PHONY : src/csv_loader.i
+src/core/testSetup.i: src/core/testSetup.cpp.i
+.PHONY : src/core/testSetup.i
 
 # target to preprocess a source file
-src/csv_loader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/csv_loader.cpp.i
-.PHONY : src/csv_loader.cpp.i
+src/core/testSetup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/testSetup.cpp.i
+.PHONY : src/core/testSetup.cpp.i
 
-src/csv_loader.s: src/csv_loader.cpp.s
-.PHONY : src/csv_loader.s
+src/core/testSetup.s: src/core/testSetup.cpp.s
+.PHONY : src/core/testSetup.s
 
 # target to generate assembly for a file
-src/csv_loader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/csv_loader.cpp.s
-.PHONY : src/csv_loader.cpp.s
+src/core/testSetup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/core/testSetup.cpp.s
+.PHONY : src/core/testSetup.cpp.s
+
+src/data/csvLoader.o: src/data/csvLoader.cpp.o
+.PHONY : src/data/csvLoader.o
+
+# target to build an object file
+src/data/csvLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o
+.PHONY : src/data/csvLoader.cpp.o
+
+src/data/csvLoader.i: src/data/csvLoader.cpp.i
+.PHONY : src/data/csvLoader.i
+
+# target to preprocess a source file
+src/data/csvLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/data/csvLoader.cpp.i
+.PHONY : src/data/csvLoader.cpp.i
+
+src/data/csvLoader.s: src/data/csvLoader.cpp.s
+.PHONY : src/data/csvLoader.s
+
+# target to generate assembly for a file
+src/data/csvLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s
+.PHONY : src/data/csvLoader.cpp.s
+
+src/indicators/EMA.o: src/indicators/EMA.cpp.o
+.PHONY : src/indicators/EMA.o
+
+# target to build an object file
+src/indicators/EMA.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o
+.PHONY : src/indicators/EMA.cpp.o
+
+src/indicators/EMA.i: src/indicators/EMA.cpp.i
+.PHONY : src/indicators/EMA.i
+
+# target to preprocess a source file
+src/indicators/EMA.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i
+.PHONY : src/indicators/EMA.cpp.i
+
+src/indicators/EMA.s: src/indicators/EMA.cpp.s
+.PHONY : src/indicators/EMA.s
+
+# target to generate assembly for a file
+src/indicators/EMA.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s
+.PHONY : src/indicators/EMA.cpp.s
+
+src/indicators/simple_moving_average.o: src/indicators/simple_moving_average.cpp.o
+.PHONY : src/indicators/simple_moving_average.o
+
+# target to build an object file
+src/indicators/simple_moving_average.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o
+.PHONY : src/indicators/simple_moving_average.cpp.o
+
+src/indicators/simple_moving_average.i: src/indicators/simple_moving_average.cpp.i
+.PHONY : src/indicators/simple_moving_average.i
+
+# target to preprocess a source file
+src/indicators/simple_moving_average.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i
+.PHONY : src/indicators/simple_moving_average.cpp.i
+
+src/indicators/simple_moving_average.s: src/indicators/simple_moving_average.cpp.s
+.PHONY : src/indicators/simple_moving_average.s
+
+# target to generate assembly for a file
+src/indicators/simple_moving_average.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s
+.PHONY : src/indicators/simple_moving_average.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -177,77 +249,53 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/simple_moving_average.o: src/simple_moving_average.cpp.o
-.PHONY : src/simple_moving_average.o
+src/statistics/statistic.o: src/statistics/statistic.cpp.o
+.PHONY : src/statistics/statistic.o
 
 # target to build an object file
-src/simple_moving_average.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/simple_moving_average.cpp.o
-.PHONY : src/simple_moving_average.cpp.o
+src/statistics/statistic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o
+.PHONY : src/statistics/statistic.cpp.o
 
-src/simple_moving_average.i: src/simple_moving_average.cpp.i
-.PHONY : src/simple_moving_average.i
+src/statistics/statistic.i: src/statistics/statistic.cpp.i
+.PHONY : src/statistics/statistic.i
 
 # target to preprocess a source file
-src/simple_moving_average.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/simple_moving_average.cpp.i
-.PHONY : src/simple_moving_average.cpp.i
+src/statistics/statistic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistics/statistic.cpp.i
+.PHONY : src/statistics/statistic.cpp.i
 
-src/simple_moving_average.s: src/simple_moving_average.cpp.s
-.PHONY : src/simple_moving_average.s
+src/statistics/statistic.s: src/statistics/statistic.cpp.s
+.PHONY : src/statistics/statistic.s
 
 # target to generate assembly for a file
-src/simple_moving_average.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/simple_moving_average.cpp.s
-.PHONY : src/simple_moving_average.cpp.s
+src/statistics/statistic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s
+.PHONY : src/statistics/statistic.cpp.s
 
-src/statistic.o: src/statistic.cpp.o
-.PHONY : src/statistic.o
+src/trade/trade.o: src/trade/trade.cpp.o
+.PHONY : src/trade/trade.o
 
 # target to build an object file
-src/statistic.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.o
-.PHONY : src/statistic.cpp.o
+src/trade/trade.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade/trade.cpp.o
+.PHONY : src/trade/trade.cpp.o
 
-src/statistic.i: src/statistic.cpp.i
-.PHONY : src/statistic.i
-
-# target to preprocess a source file
-src/statistic.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.i
-.PHONY : src/statistic.cpp.i
-
-src/statistic.s: src/statistic.cpp.s
-.PHONY : src/statistic.s
-
-# target to generate assembly for a file
-src/statistic.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistic.cpp.s
-.PHONY : src/statistic.cpp.s
-
-src/trade.o: src/trade.cpp.o
-.PHONY : src/trade.o
-
-# target to build an object file
-src/trade.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.o
-.PHONY : src/trade.cpp.o
-
-src/trade.i: src/trade.cpp.i
-.PHONY : src/trade.i
+src/trade/trade.i: src/trade/trade.cpp.i
+.PHONY : src/trade/trade.i
 
 # target to preprocess a source file
-src/trade.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.i
-.PHONY : src/trade.cpp.i
+src/trade/trade.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade/trade.cpp.i
+.PHONY : src/trade/trade.cpp.i
 
-src/trade.s: src/trade.cpp.s
-.PHONY : src/trade.s
+src/trade/trade.s: src/trade/trade.cpp.s
+.PHONY : src/trade/trade.s
 
 # target to generate assembly for a file
-src/trade.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade.cpp.s
-.PHONY : src/trade.cpp.s
+src/trade/trade.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade/trade.cpp.s
+.PHONY : src/trade/trade.cpp.s
 
 # Help Target
 help:
@@ -258,21 +306,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... backtester"
-	@echo "... src/csv_loader.o"
-	@echo "... src/csv_loader.i"
-	@echo "... src/csv_loader.s"
+	@echo "... src/core/testSetup.o"
+	@echo "... src/core/testSetup.i"
+	@echo "... src/core/testSetup.s"
+	@echo "... src/data/csvLoader.o"
+	@echo "... src/data/csvLoader.i"
+	@echo "... src/data/csvLoader.s"
+	@echo "... src/indicators/EMA.o"
+	@echo "... src/indicators/EMA.i"
+	@echo "... src/indicators/EMA.s"
+	@echo "... src/indicators/simple_moving_average.o"
+	@echo "... src/indicators/simple_moving_average.i"
+	@echo "... src/indicators/simple_moving_average.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/simple_moving_average.o"
-	@echo "... src/simple_moving_average.i"
-	@echo "... src/simple_moving_average.s"
-	@echo "... src/statistic.o"
-	@echo "... src/statistic.i"
-	@echo "... src/statistic.s"
-	@echo "... src/trade.o"
-	@echo "... src/trade.i"
-	@echo "... src/trade.s"
+	@echo "... src/statistics/statistic.o"
+	@echo "... src/statistics/statistic.i"
+	@echo "... src/statistics/statistic.s"
+	@echo "... src/trade/trade.o"
+	@echo "... src/trade/trade.i"
+	@echo "... src/trade/trade.s"
 .PHONY : help
 
 

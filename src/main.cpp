@@ -1,44 +1,37 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <csv_loader.h>
 #include <simple_moving_average.h>
+#include <testSetup.h>
 
 int main() {
-    const std::string filePathBase = "data/";
-    std::string filename, strategy;
     
-    std::cout << "Enter the file name: " << std::endl;
-    std::cin >> filename;
+    TestSetup testSetup;
+    testSetup.setCandles();
 
-    std::cout << "Chose the strategy (SMA): " << std::endl;
-    std::cin >> strategy;
+    testSetup.addIndicator();
 
-    CSVLoader csvLoader(filePathBase + filename, ',');
-    
-    std::cout << "Loading data..." << std::endl;
+    // if (strategy == "SMA") {
+    //     std::string trStopAnswer;
+    //     double maxStopLoss, trStopPercentage;
 
-    std::vector<Candle> candles = csvLoader.load();
+    //     std::cout << "\nCalculating SMA...\n" << std::endl;
 
-    for (int i = 0; i < candles.size(); i++) {
-        Candle candle = candles[i];
-        std::cout << candle.timestamp
-            << " Open: " << candle.open
-            << " High: " << candle.high
-            << " Low: " << candle.low
-            << " Close: " << candle.close
-            << " Adjusted Close: " << candle.adjClose
-            << " Volume: " << candle.volume
-            << std::endl;
-    }
+    //     std::cout << "Specify Max Stop loss: " << std::endl;
+    //     std::cin >> maxStopLoss;
 
-    if (strategy == "SMA") {
-        std::cout << "\nCalculating SMA...\n" << std::endl;
+    //     std::cout << "Do you need a trailing stop?: Yes/No" << std::endl;
+    //     std::cin >> trStopAnswer;
 
-        SMA sma(candles, 50, 200);
+    //     if (trStopAnswer == "Yes") {
+    //         std::cout << "Enter trailing stop percentage (10.0): " << std::endl;
+    //         std::cin >> trStopPercentage;
+    //     }
 
-        sma.calculate();
-    }
+    //     SMA sma(candles, 50, 200);
+
+    //     sma.calculate(maxStopLoss, trStopPercentage);
+    // }
 
     return 0;
 }

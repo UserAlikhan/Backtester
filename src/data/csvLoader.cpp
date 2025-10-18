@@ -1,4 +1,4 @@
-#include "csv_loader.h"
+#include "csvLoader.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -8,8 +8,8 @@
 CSVLoader::CSVLoader(const std::string& file, char delim)
     : filename(file), delimiter(delim) {}
 
-std::vector<Candle> CSVLoader::load() {
-    std::vector<Candle> data;
+std::vector<Candle*> CSVLoader::load() {
+    std::vector<Candle*> data;
     std::ifstream file(filename);
 
     if (!file.is_open()) {
@@ -28,27 +28,29 @@ std::vector<Candle> CSVLoader::load() {
 
         std::stringstream ss(line);
         std::string value;
-        Candle candle;
+        
+        // allocate memory
+        Candle* candle = new Candle();
 
-        std::getline(ss, candle.timestamp, delimiter);
-
-        std::getline(ss, value, delimiter); 
-        candle.open = std::stod(value);
-
-        std::getline(ss, value, delimiter); 
-        candle.high = std::stod(value);
+        std::getline(ss, candle->timestamp, delimiter);
 
         std::getline(ss, value, delimiter); 
-        candle.low = std::stod(value);
+        candle->open = std::stod(value);
 
         std::getline(ss, value, delimiter); 
-        candle.close = std::stod(value);
+        candle->high = std::stod(value);
 
         std::getline(ss, value, delimiter); 
-        candle.adjClose = std::stod(value);
+        candle->low = std::stod(value);
 
         std::getline(ss, value, delimiter); 
-        candle.volume = std::stod(value);
+        candle->close = std::stod(value);
+
+        std::getline(ss, value, delimiter); 
+        candle->adjClose = std::stod(value);
+
+        std::getline(ss, value, delimiter); 
+        candle->volume = std::stod(value);
 
         data.push_back(candle);
     }

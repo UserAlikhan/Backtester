@@ -4,11 +4,11 @@
 #include <candle.h>
 
 class CSVLoader {
-    private:
+    private:        
         std::string filename;
         char delimiter;
     
     public:
         CSVLoader(const std::string& file, char delim = ',');
-        std::vector<Candle> load();
+        std::vector<Candle*> load();
 };

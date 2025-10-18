@@ -1,6 +1,6 @@
-CMakeFiles/backtester.dir/src/statistic.cpp.o: \
-  /Users/alikhanataniyazov/Projects/BackTester/src/statistic.cpp \
-  /Users/alikhanataniyazov/Projects/BackTester/include/statistic.h \
+CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -794,4 +794,5 @@ CMakeFiles/backtester.dir/src/statistic.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/alikhanataniyazov/Projects/BackTester/include/trade_result.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h
