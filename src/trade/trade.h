@@ -25,6 +25,14 @@ class Trade {
             double entryPrice, double closePrice, double trailingStopPercentage
         );
 
+        double getEntryPrice() {
+            return this->entryPrice;
+        }
+
+        TradeType getTradeType() {
+            return this->tradeType;
+        }
+
         double getTrailingStopPercentage() {
             return this->trailingStopPercentage;
         }

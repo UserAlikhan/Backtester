@@ -13,6 +13,7 @@ include_directories(
     src/indicators
     src/statistics
     src/trade
+    src/stopLoss
 )
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")

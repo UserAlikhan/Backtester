@@ -44,3 +44,18 @@ void EMA::calculate(std::vector<Candle*>& candles) {
 
     std::cout << "Data size: " << candles.size() << " Period 1 size: " << dataPeriod1.size() << " Period 2 size: " << dataPeriod2.size() << std::endl;
 }
+
+std::vector<std::pair<InterSectionEnum, int>> EMA::findIntersections() {
+    std::vector<std::pair<InterSectionEnum, int>> result;
+
+    for (int i = 1; i < dataPeriod1.size(); i++) {
+        // Golden cross
+        if (dataPeriod2[i - 1] > dataPeriod1[i - 1] && dataPeriod1[i] > dataPeriod2[i]) {
+            result.push_back({InterSectionEnum::GOLDEN_CROSS, i});
+        } else if (dataPeriod1[i - 1] > dataPeriod2[i - 1] && dataPeriod2[i] > dataPeriod1[i]) {
+            result.push_back({InterSectionEnum::DEATH_CROSS, i});
+        }
+    }
+
+    return result;
+}

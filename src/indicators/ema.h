@@ -2,6 +2,11 @@
 #include <iostream>
 #include "indicator.h"
 
+enum InterSectionEnum {
+    DEATH_CROSS,
+    GOLDEN_CROSS,
+};
+
 class EMA : public Indicator {
     private:
         int period1;
@@ -16,4 +21,7 @@ class EMA : public Indicator {
         std::vector<double>& getDataPeriod2() { return dataPeriod2;}
 
         void calculate(std::vector<Candle*>& candles) override;
+
+        // returns intersection type and intersection index from data
+        std::vector<std::pair<InterSectionEnum, int>> findIntersections();
 };

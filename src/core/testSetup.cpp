@@ -49,10 +49,6 @@ void TestSetup::addIndicator() {
 
         EMA* ema = new EMA("Simple moving average", per1, per2);
         indicators.push_back(ema);
-        ema->calculate(candles);
-
-        std::vector<double> data1 = ema->getDataPeriod1();
-        std::vector<double> data2 = ema->getDataPeriod2();
 
         std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
     }
