@@ -9,6 +9,7 @@ class StopLoss {
 
     public:
         StopLoss(double percentage);
+        virtual ~StopLoss() = default;
 
         virtual void setPrice(Trade& trade, double entryPrice) = 0;
 

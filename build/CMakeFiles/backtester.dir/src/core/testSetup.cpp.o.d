@@ -803,7 +803,6 @@ CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade_result.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.h

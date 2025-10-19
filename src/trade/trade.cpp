@@ -2,105 +2,131 @@
 #include <iostream>
 
 Trade::Trade(
-    TradeType tradeType, double currentBalance,
-    double transactionAmount, double entryPrice, double closePrice,
-    double trailingStopPercentage
-) : tradeType(tradeType), currentBalance(currentBalance), 
-transactionAmount(transactionAmount), entryPrice(entryPrice), 
-closePrice(closePrice), trailingStopPercentage(trailingStopPercentage) {}
+    TradeType tradeType, double transactionAmount, double entryPrice
+) : tradeType(tradeType), transactionAmount(transactionAmount),
+entryPrice(entryPrice) {};
 
-double Trade::result() {
-    if (transactionAmount < 0) {
-        std::cout << "Transaction amount must be greater than 0.0" << std::endl;
-        return 0.0;
-    }
+void Trade::closeTrade(double closePrice) {
+    this->closePrice = closePrice;
+}
 
-    double quantity = transactionAmount / entryPrice;
-    double result = 0.0;
-
-    switch (tradeType) {
+void Trade::calculatePL() {
+    switch(tradeType) {
         case LONG: {
-            result = (closePrice - entryPrice) * quantity;
-            break;
+            PL = transactionAmount * (closePrice - entryPrice);
+            PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
         }
         case SHORT: {
-            result = (entryPrice - closePrice) * quantity;
-            break;
+            PL = transactionAmount * (entryPrice - closePrice);
+            PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
         }
     }
+}
 
-    double newBalance = currentBalance + result;
+void Trade::recalculateBalance(double* currentBalance) {
+    *currentBalance += PL;
+}
+
+// Trade::Trade(
+//     TradeType tradeType, double currentBalance,
+//     double transactionAmount, double entryPrice, double closePrice,
+//     double trailingStopPercentage
+// ) : tradeType(tradeType), currentBalance(currentBalance), 
+// transactionAmount(transactionAmount), entryPrice(entryPrice), 
+// closePrice(closePrice), trailingStopPercentage(trailingStopPercentage) {}
+
+// double Trade::result() {
+//     if (transactionAmount < 0) {
+//         std::cout << "Transaction amount must be greater than 0.0" << std::endl;
+//         return 0.0;
+//     }
+
+//     double quantity = transactionAmount / entryPrice;
+//     double result = 0.0;
+
+//     switch (tradeType) {
+//         case LONG: {
+//             result = (closePrice - entryPrice) * quantity;
+//             break;
+//         }
+//         case SHORT: {
+//             result = (entryPrice - closePrice) * quantity;
+//             break;
+//         }
+//     }
+
+//     double newBalance = currentBalance + result;
             
-    if (newBalance < 0) {
-        newBalance = 0.0;
-    }
+//     if (newBalance < 0) {
+//         newBalance = 0.0;
+//     }
     
-    return newBalance;
-}
+//     return newBalance;
+// }
 
-void Trade::trackStopLossSMA(
-    bool& isInDeathCross, bool& isInGoldenCross, TradeType tradeType,
-    double& entryPrice, double& closePrice, double close, 
-    double& balance, std::vector<TradeResult>& tradeResults,
-    int maxLossPercentage
-) {
-    if ((isInDeathCross || isInGoldenCross) && entryPrice != 0.0 && closePrice == 0.0) {
-        double difference = close - entryPrice;
-        // DEATH CROSS, we have loss when price goes up
-        if ((tradeType == SHORT && difference > 0.0) || (tradeType == LONG && difference < 0.0)) {
-            // if have loss case
-            double currentLoss = (std::abs(difference) / entryPrice) * 100;
-            // std::cout << "currentLoss: " << currentLoss << std::endl;
-            if (currentLoss >= maxLossPercentage) {
-                // close the trade
-                Trade trade(tradeType, balance, balance * 0.35, entryPrice, close, 0.0);
-                double newBalance = trade.result();
-                // save trade result (gain / loss)
-                tradeResults.push_back({newBalance - balance});
+// void Trade::trackStopLossSMA(
+//     bool& isInDeathCross, bool& isInGoldenCross, TradeType tradeType,
+//     double& entryPrice, double& closePrice, double close, 
+//     double& balance, std::vector<TradeResult>& tradeResults,
+//     int maxLossPercentage
+// ) {
+//     if ((isInDeathCross || isInGoldenCross) && entryPrice != 0.0 && closePrice == 0.0) {
+//         double difference = close - entryPrice;
+//         // DEATH CROSS, we have loss when price goes up
+//         if ((tradeType == SHORT && difference > 0.0) || (tradeType == LONG && difference < 0.0)) {
+//             // if have loss case
+//             double currentLoss = (std::abs(difference) / entryPrice) * 100;
+//             // std::cout << "currentLoss: " << currentLoss << std::endl;
+//             if (currentLoss >= maxLossPercentage) {
+//                 // close the trade
+//                 Trade trade(tradeType, balance, balance * 0.35, entryPrice, close, 0.0);
+//                 double newBalance = trade.result();
+//                 // save trade result (gain / loss)
+//                 tradeResults.push_back({newBalance - balance});
 
-                if (tradeType == SHORT) {
-                    std::cout << "\nDeath Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
-                } else if (tradeType == LONG) {
-                    std::cout << "\nGolden Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
-                }
+//                 if (tradeType == SHORT) {
+//                     std::cout << "\nDeath Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
+//                 } else if (tradeType == LONG) {
+//                     std::cout << "\nGolden Cross Trade WAS CLOSED BY STOP LOSS. %: " << currentLoss << " $: " << newBalance - balance << std::endl;
+//                 }
 
-                // balance cannot be less than 0
-                balance = (newBalance > 0) ? newBalance : 0.0;
+//                 // balance cannot be less than 0
+//                 balance = (newBalance > 0) ? newBalance : 0.0;
 
-                entryPrice = 0.0;
-                closePrice = 0.0;
-                isInDeathCross = false;
-                isInGoldenCross = false;
-            }
-        }
-    }
-}
+//                 entryPrice = 0.0;
+//                 closePrice = 0.0;
+//                 isInDeathCross = false;
+//                 isInGoldenCross = false;
+//             }
+//         }
+//     }
+// }
 
-void Trade::closeTrade(
-    double& entryPrice, double closePrice, TradeType tradeType, 
-    double& balance, std::vector<TradeResult>& tradeResults
-) {
-    if (entryPrice != 0.0) {
-        // close the trade
-        Trade trade(tradeType, balance, balance * 0.35, entryPrice, closePrice, 0.0);
-        double newBalance = trade.result();
-        // save trade result
-        tradeResults.push_back({newBalance - balance});
+// void Trade::closeTrade(
+//     double& entryPrice, double closePrice, TradeType tradeType, 
+//     double& balance, std::vector<TradeResult>& tradeResults
+// ) {
+//     if (entryPrice != 0.0) {
+//         // close the trade
+//         Trade trade(tradeType, balance, balance * 0.35, entryPrice, closePrice, 0.0);
+//         double newBalance = trade.result();
+//         // save trade result
+//         tradeResults.push_back({newBalance - balance});
         
-        if (tradeType == LONG) {
-            std::cout << "\nGolden Cross Trade result: " << newBalance - balance << std::endl;
-        } else if (tradeType == SHORT) {
-            std::cout << "\nDeath Cross Trade result: " << newBalance - balance << std::endl;
-        }
+//         if (tradeType == LONG) {
+//             std::cout << "\nGolden Cross Trade result: " << newBalance - balance << std::endl;
+//         } else if (tradeType == SHORT) {
+//             std::cout << "\nDeath Cross Trade result: " << newBalance - balance << std::endl;
+//         }
         
-        // balance cannot be less that 0
-        balance = (newBalance > 0) ? newBalance : 0.0;
+//         // balance cannot be less that 0
+//         balance = (newBalance > 0) ? newBalance : 0.0;
 
-        // clean the values
-        entryPrice = 0.0;
-        closePrice = 0.0;
-    }
-}
+//         // clean the values
+//         entryPrice = 0.0;
+//         closePrice = 0.0;
+//     }
+// }
 
 // void Trade::trackTrailingStop(
 //     bool& isInDeathCross, bool&isInGoldenCross, Trade& trade, double& entryPrice, 

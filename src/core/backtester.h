@@ -30,5 +30,5 @@ class Backtester {
         void addStopLoss(StopLoss* stopLoss);
 
         // run backtest
-        void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators);
+        void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance);
 };

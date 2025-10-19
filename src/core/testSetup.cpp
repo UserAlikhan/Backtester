@@ -35,6 +35,15 @@ void TestSetup::setCandles() {
     std::cout << "Data was uploaded successfully" << std::endl;
 }
 
+void TestSetup::setBalance() {
+    double balance;
+
+    std::cout << "Enter you initial balace: " << std::endl;
+    std::cin >> balance;
+
+    this->balance = balance;
+}
+
 void TestSetup::addIndicator() {
     std::string strategy;
 
@@ -77,10 +86,10 @@ void TestSetup::initializeBacktester() {
 
     std::cout << "Your indicators: ";
     for (auto indc : indicators) {
-        std::cout << indc->getName();
+        std::cout << indc->getName() << " ";
     }
     std::cout << std::endl;
 
     Backtester* backtester = new Backtester();
-    backtester->run(candles, indicators);
+    backtester->run(candles, indicators, &balance);
 }

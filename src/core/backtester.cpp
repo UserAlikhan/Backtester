@@ -63,9 +63,9 @@ void ascendingSortIntersections(
     );
 }
 
-void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators) {
+void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
     // USER PROMPTS
-    double maxStopLoss, trailingStopLoss;
+    double maxStopLoss, trailingStopLoss, shareOfBalance;
     std::string trailingStopLossAnswer;
 
     std::cout << "Speficy maximum stop loss: " << std::endl;
@@ -78,6 +78,9 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
         std::cout << "Specify trailing stop: " << std::endl;
         std::cin >> trailingStopLoss;
     }
+
+    std::cout << "Enter a share of balance you want to use for trades (%): " << std::endl;
+    std::cin >> shareOfBalance;
 
     // BACKTEST RUNNER
     std::unordered_map<std::string, bool> indicatorTriggerStatus;
@@ -120,7 +123,8 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
                 if (otherIndicatorName == indicatorName) continue;
 
                 for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
-                    if (otherIndicatorSignal.second == index) {
+                    // checks price index to be the same and trade type to be the same
+                    if (otherIndicatorSignal.second == index && otherIndicatorSignal.first == signal.first) {
                         indicatorTriggerStatus[otherPair.first] = true;
                         break;
                     }
@@ -138,12 +142,13 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
             bool confirmation = checkTradeSignal(indicatorTriggerStatus);
             if (confirmation) {
                 std::cout << "TRADE SIGNAL AT: " << type << " index: "<<  index << std::endl;
-                // Trade* trade;
-                // addTrade(trade);
+                Trade* trade = new Trade(signal.first, signal.second, *balance * shareOfBalance / 100);
+                addTrade(trade);
             }
 
             resetTriggerStatus(indicators, indicatorTriggerStatus);
         }
+
         // we do not need to run further. since, at this points we have all
         // the trade signals
         break;

@@ -6,6 +6,8 @@ int main() {
     TestSetup testSetup;
     testSetup.setCandles();
 
+    testSetup.setBalance();
+
     testSetup.addIndicator();
 
     testSetup.initializeBacktester();

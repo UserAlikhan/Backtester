@@ -12,12 +12,17 @@ class TestSetup {
         std::vector<Candle*> candles;
         std::vector<Indicator*> indicators;
         Backtester* backtester;
+        double balance = 5000.0;
     
     public:
         TestSetup();
         ~TestSetup();
 
         void setCandles();
+
+        double getBalance() { return balance; }
+        
+        void setBalance();
         
         void addIndicator();
 
