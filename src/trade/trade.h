@@ -17,10 +17,12 @@ class Trade {
 
         TradeType getTradeType() { return tradeType; }
         double getEntryPrice() { return entryPrice; }
+        double getClosePrice() { return closePrice; }
         double getPL() { return PL; }
 
+        double calculateLiquidationPrice(double *currentBalance);
         void closeTrade(double closePrice);
-        void calculatePL();
+        void calculatePL(double* currentBalance);
         void recalculateBalance(double* currentBalance);
 };
 

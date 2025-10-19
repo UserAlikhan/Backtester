@@ -10,15 +10,51 @@ void Trade::closeTrade(double closePrice) {
     this->closePrice = closePrice;
 }
 
-void Trade::calculatePL() {
+double Trade::calculateLiquidationPrice(double* currentBalance) {
+    double liquidationPrice;
+
+    switch(tradeType) {
+        case LONG: {
+            liquidationPrice = entryPrice - (*currentBalance / transactionAmount);
+        }
+        case SHORT: {
+            liquidationPrice = entryPrice + (*currentBalance / transactionAmount);
+        }
+    }
+
+    return liquidationPrice;
+}
+
+void Trade::calculatePL(double* currentBalance) {
+    if (*currentBalance == 0) return;
+
     switch(tradeType) {
         case LONG: {
             PL = transactionAmount * (closePrice - entryPrice);
+
+            double loss = transactionAmount * (entryPrice - closePrice);
+
+            if (loss >= *currentBalance) {
+                // check liquidation price if loss exceeds the balance
+                double liquidationPrice = calculateLiquidationPrice(currentBalance);
+                this->closePrice = liquidationPrice;
+                *currentBalance = 0;
+            }
+
             PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
             break;
         }
         case SHORT: {
             PL = transactionAmount * (entryPrice - closePrice);
+            
+            double loss = transactionAmount * (closePrice - entryPrice);
+            // check liquidation price if loss exceeds the balance
+            if (loss >= *currentBalance) {
+                double liquidationPrice = calculateLiquidationPrice(currentBalance);
+                this->closePrice = liquidationPrice;
+                *currentBalance = 0;
+            }
+
             PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
             break;
         }

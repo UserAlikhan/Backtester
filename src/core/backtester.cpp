@@ -64,6 +64,10 @@ void ascendingSortIntersections(
 }
 
 void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
+    if (*balance <= 0) {
+        std::cout << "Balance is zero. You cannot make trades" << std::endl;
+    }
+
     // USER PROMPTS
     double maxStopLoss, trailingStopLoss, shareOfBalance;
     std::string trailingStopLossAnswer;
@@ -140,24 +144,32 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
 
             // if there is trade signal in all indicators execute trade
             bool confirmation = checkTradeSignal(indicatorTriggerStatus);
-            if (confirmation) {
-                std::cout << "TRADE SIGNAL TYPE: " << type << " index: "<<  index << std::endl;
 
+            // if balance gets to 0 no further trades available
+            if (*balance <= 0 ) break;
+            else if (confirmation && *balance > 0) {
                 // open a new trade
-                std::cout << "Tradetype: " << signal.first << " entry price: " << candles[signal.second]->close << " share of balance: " << *balance * shareOfBalance / 100 << std::endl;
-                Trade* trade = new Trade(signal.first, *balance * shareOfBalance / 100, candles[signal.second]->close);
+                Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[signal.second]->close);
                 addTrade(trade);
+                std::cout << type << " trade was opened." << " Entry price: " 
+                    << candles[signal.second]->close 
+                    << ". Share of balance: " << *balance * shareOfBalance / 100 
+                << std::endl;
 
                 // set a new stop loss
                 FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
                 fixedStopLoss->setPrice(trade, candles[index]->close);
                 addStopLoss(fixedStopLoss);
 
-                std::cout << "DATA SIZE " << candles.size() << " INDEX " << index << std::endl;
                 fixedStopLoss->checkExit(trade, index, candles);
-                trade->calculatePL();
-
-                std::cout << "TRADE AT INDEX " <<  index  << " WAS CLOSED. Profit: " << trade->getPL()  << "\n" << std::endl;
+                trade->calculatePL(balance);
+                
+                if (*balance > 0) {
+                    std::cout << type << " trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+                } else {
+                    std::cout << type << " trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+                }
+                std::cout << "Current Balance: " << *balance << "\n" << std::endl;
                 trade->recalculateBalance(balance);
             }
 
@@ -170,5 +182,4 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
     }
 
     std::cout << "Number of trades: " << trades.size() << std::endl;
-    std::cout << "Balance: " << *balance << std::endl;
 }

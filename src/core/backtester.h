@@ -29,6 +29,7 @@ class Backtester {
         // add stop loss if happened
         void addStopLoss(StopLoss* stopLoss);
 
+        void manageTradeAndKeepStopLoss();
         // run backtest
         void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance);
 };
