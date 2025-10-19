@@ -2,10 +2,12 @@
 #include <vector>
 #include "trade.h"
 #include "stopLoss.h"
-#include <candle.h>
-#include <indicator.h>
+#include "fixedStopLoss.h"
+#include "trailingStopLoss.h"
+#include "candle.h"
+#include "indicator.h"
 #include "intersectionEnum.h"
-#include <intersectionIndicator.h>
+#include "intersectionIndicator.h"
 
 class Backtester {
     private:
@@ -22,10 +24,10 @@ class Backtester {
         std::vector<Trade*>& getAllTrades() { return trades; }
 
         // add trade if was closed
-        void addTrade();
+        void addTrade(Trade* trade);
 
         // add stop loss if happened
-        void addStopLoss();
+        void addStopLoss(StopLoss* stopLoss);
 
         // run backtest
         void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators);

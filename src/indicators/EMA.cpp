@@ -47,7 +47,7 @@ void EMA::calculate(std::vector<Candle*>& candles) {
 
 std::vector<std::pair<IntersectionEnum, int>> EMA::findIntersections() {
     std::vector<std::pair<IntersectionEnum, int>> result;
-
+    // does not matter if we iterate over dataPeriod1 or dataPeriod2
     for (size_t i = 1; i < dataPeriod1.size(); i++) {
         // Golden cross
         if (dataPeriod2[i - 1] > dataPeriod1[i - 1] && dataPeriod1[i] > dataPeriod2[i]) {
