@@ -141,9 +141,24 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
             // if there is trade signal in all indicators execute trade
             bool confirmation = checkTradeSignal(indicatorTriggerStatus);
             if (confirmation) {
-                std::cout << "TRADE SIGNAL AT: " << type << " index: "<<  index << std::endl;
-                Trade* trade = new Trade(signal.first, signal.second, *balance * shareOfBalance / 100);
+                std::cout << "TRADE SIGNAL TYPE: " << type << " index: "<<  index << std::endl;
+
+                // open a new trade
+                std::cout << "Tradetype: " << signal.first << " entry price: " << candles[signal.second]->close << " share of balance: " << *balance * shareOfBalance / 100 << std::endl;
+                Trade* trade = new Trade(signal.first, *balance * shareOfBalance / 100, candles[signal.second]->close);
                 addTrade(trade);
+
+                // set a new stop loss
+                FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
+                fixedStopLoss->setPrice(trade, candles[index]->close);
+                addStopLoss(fixedStopLoss);
+
+                std::cout << "DATA SIZE " << candles.size() << " INDEX " << index << std::endl;
+                fixedStopLoss->checkExit(trade, index, candles);
+                trade->calculatePL();
+
+                std::cout << "TRADE AT INDEX " <<  index  << " WAS CLOSED. Profit: " << trade->getPL()  << "\n" << std::endl;
+                trade->recalculateBalance(balance);
             }
 
             resetTriggerStatus(indicators, indicatorTriggerStatus);
@@ -153,4 +168,7 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
         // the trade signals
         break;
     }
+
+    std::cout << "Number of trades: " << trades.size() << std::endl;
+    std::cout << "Balance: " << *balance << std::endl;
 }

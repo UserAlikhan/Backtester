@@ -17,6 +17,7 @@ class Trade {
 
         TradeType getTradeType() { return tradeType; }
         double getEntryPrice() { return entryPrice; }
+        double getPL() { return PL; }
 
         void closeTrade(double closePrice);
         void calculatePL();

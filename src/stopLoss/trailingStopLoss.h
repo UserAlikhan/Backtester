@@ -8,6 +8,6 @@ class TrailingStopLoss : public StopLoss {
     public:
         TrailingStopLoss(double percentage);
         
-        void setPrice(Trade& trade, double entryPrice) override;
-        bool checkExit(Trade& trade, double currentPrice) override;
+        void setPrice(Trade* trade, double& entryPrice) override;
+        void checkExit(Trade* trade, int index, std::vector<Candle*>& candles) override;
 };

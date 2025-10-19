@@ -796,4 +796,5 @@ CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h

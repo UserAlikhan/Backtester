@@ -15,10 +15,12 @@ void Trade::calculatePL() {
         case LONG: {
             PL = transactionAmount * (closePrice - entryPrice);
             PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
+            break;
         }
         case SHORT: {
             PL = transactionAmount * (entryPrice - closePrice);
             PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
+            break;
         }
     }
 }

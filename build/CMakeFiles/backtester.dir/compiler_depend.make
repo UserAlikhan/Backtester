@@ -5634,6 +5634,7 @@ CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o: /Users/alikhanataniy
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
@@ -6433,6 +6434,7 @@ CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o: /Users/alikhanataniyazov/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h
@@ -7231,6 +7233,7 @@ CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o: /Users/alikhanata
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
