@@ -1,11 +1,7 @@
 #pragma once
 #include <iostream>
-#include <trade_result.h>
-
-enum TradeType {
-    LONG,
-    SHORT,
-};
+#include "trade_result.h"
+#include "tradeTypeEnum.h"
 
 class Trade {
     private:

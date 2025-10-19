@@ -38,21 +38,37 @@ void TestSetup::setCandles() {
 void TestSetup::addIndicator() {
     std::string strategy;
 
-    std::cout << "Chose the strategy (SMA): " << std::endl;
-    std::cin >> strategy;
+    while (true) {
+        std::cout << "Type indicator names (SMA) and type stop after you are done: " << std::endl;
+        std::cin >> strategy;
 
-    if (strategy == "SMA") {
-        double per1, per2;
+        if (strategy == "stop") break;
 
-        std::cout << "Chose period for first moving average: " << std::endl;
-        std::cin >> per1;
-        std::cout << "Chose period for second moving average: " << std::endl;
-        std::cin >> per2;
+        if (strategy == "SMA") {
+            double per1, per2;
 
-        EMA* ema = new EMA("Simple moving average", per1, per2);
-        indicators.push_back(ema);
+            std::cout << "Chose period for first moving average: " << std::endl;
+            std::cin >> per1;
+            std::cout << "Chose period for second moving average: " << std::endl;
+            std::cin >> per2;
 
-        std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
+            EMA* ema = new EMA("Simple moving average", per1, per2);
+            indicators.push_back(ema);
+
+            std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
+        } else if (strategy == "EMA") {
+            double per1, per2;
+
+            std::cout << "Chose period for first moving average: " << std::endl;
+            std::cin >> per1;
+            std::cout << "Chose period for second moving average: " << std::endl;
+            std::cin >> per2;
+
+            EMA* ema = new EMA("Exponential moving average", per1, per2);
+            indicators.push_back(ema);
+
+            std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
+        }
     }
 }
 

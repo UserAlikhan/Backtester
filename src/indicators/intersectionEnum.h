@@ -1,6 +1,6 @@
 #pragma once
 
-enum class IntersectionEnum {
+enum IntersectionEnum {
     GOLDEN_CROSS,
     DEATH_CROSS
 };

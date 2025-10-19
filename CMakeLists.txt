@@ -16,6 +16,6 @@ include_directories(
     src/stopLoss
 )
 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
 
 add_executable(backtester ${SOURCES})

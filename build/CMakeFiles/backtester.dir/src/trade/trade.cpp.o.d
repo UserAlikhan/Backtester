@@ -794,4 +794,5 @@ CMakeFiles/backtester.dir/src/trade/trade.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade_result.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade_result.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h

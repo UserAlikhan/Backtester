@@ -2,6 +2,7 @@
 #include <iostream>
 #include "trade.h"
 #include "stopLoss.h"
+#include "tradeTypeEnum.h"
 
 class TrailingStopLoss : public StopLoss {
     public:

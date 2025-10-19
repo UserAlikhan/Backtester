@@ -797,4 +797,5 @@ CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade_result.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.h

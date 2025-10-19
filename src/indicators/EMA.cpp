@@ -45,15 +45,15 @@ void EMA::calculate(std::vector<Candle*>& candles) {
     std::cout << "Data size: " << candles.size() << " Period 1 size: " << dataPeriod1.size() << " Period 2 size: " << dataPeriod2.size() << std::endl;
 }
 
-std::vector<std::pair<IntersectionEnum, int>> EMA::findIntersections() {
-    std::vector<std::pair<IntersectionEnum, int>> result;
+std::vector<std::pair<TradeType, int>> EMA::findIntersections() {
+    std::vector<std::pair<TradeType, int>> result;
     // does not matter if we iterate over dataPeriod1 or dataPeriod2
     for (size_t i = 1; i < dataPeriod1.size(); i++) {
         // Golden cross
         if (dataPeriod2[i - 1] > dataPeriod1[i - 1] && dataPeriod1[i] > dataPeriod2[i]) {
-            result.push_back({IntersectionEnum::GOLDEN_CROSS, i});
+            result.push_back({TradeType::LONG, i});
         } else if (dataPeriod1[i - 1] > dataPeriod2[i - 1] && dataPeriod2[i] > dataPeriod1[i]) {
-            result.push_back({IntersectionEnum::DEATH_CROSS, i});
+            result.push_back({TradeType::SHORT, i});
         }
     }
 

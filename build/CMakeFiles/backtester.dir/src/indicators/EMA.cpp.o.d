@@ -797,4 +797,5 @@ CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/data/candle.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h
