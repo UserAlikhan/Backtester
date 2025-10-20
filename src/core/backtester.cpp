@@ -244,8 +244,6 @@ void Backtester::checkAllCloseOrders(
     for (size_t i = index; i < candles.size(); i++) {
         double close = candles[i]->close;
         tsl->setPrice(trade, close);
-        
-        // take profit case
 
         // trailing stop loss
         if (tsl->getPrice() > 0.0) {
@@ -261,7 +259,7 @@ void Backtester::checkAllCloseOrders(
         }
 
         // stop loss case
-        if (fixedSl) {
+        if (fixedSl->getPrice() > 0.0) {
             // if price is bigger than stop loss close the long trade
             if (trade->getTradeType() == TradeType::LONG && fixedSl->getPrice() >= close) {
                 trade->closeTrade(fixedSl->getPrice());
@@ -275,15 +273,15 @@ void Backtester::checkAllCloseOrders(
             } 
         }
 
+        // take profit case
+
         // if we reached the end of the dataset and we do not have close price, 
         // close the trade using the last datapoint
         if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
             trade->closeTrade(candles[i]->close);
-            std::cout << "Closed by market (no stop hit): " << close << std::endl;
+            std::cout << "End of the dataset. Closed by market (no stop hit): " << close << std::endl;
             return;
         }
-
-        // trailing stop loss case
     }
 
     delete fixedSl;

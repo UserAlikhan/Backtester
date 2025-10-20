@@ -9,7 +9,7 @@ void TrailingStopLoss::setPrice(Trade* trade, double& currentPrice) {
             if (currentPrice >= trade->getEntryPrice() * (1 + percentage / 100)) {
                 double newStop = currentPrice * (1 - percentage / 100);
 
-                if (newStop > price) {
+                if (price == 0.0 || newStop > price) {
                     price = newStop;
                 }
             }
