@@ -35,6 +35,8 @@ void Trade::calculatePL(double* currentBalance) {
                 // check liquidation price if loss exceeds the balance
                 double liquidationPrice = calculateLiquidationPrice(currentBalance);
                 this->closePrice = liquidationPrice;
+                PL = transactionAmount * (closePrice - entryPrice);
+                PLpercentage = -100;
                 *currentBalance = 0;
                 std::cout << "LONG trade liquidated at: " << liquidationPrice << std::endl;
                 return;
@@ -51,6 +53,8 @@ void Trade::calculatePL(double* currentBalance) {
             if (PL < -(*currentBalance)) {
                 double liquidationPrice = calculateLiquidationPrice(currentBalance);
                 this->closePrice = liquidationPrice;
+                PL = transactionAmount * (entryPrice - closePrice);
+                PLpercentage = -100;
                 *currentBalance = 0;
                 std::cout << "SHORT trade liquidated at: " << liquidationPrice << std::endl;
                 return;
