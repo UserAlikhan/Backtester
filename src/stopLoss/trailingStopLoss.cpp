@@ -30,6 +30,6 @@ void TrailingStopLoss::setPrice(Trade* trade, double& orderPrice) {
 }
 
 
-void TrailingStopLoss::checkExit(Trade* trade, int index, std::vector<Candle*>& candles) {
+void TrailingStopLoss::checkExit(Trade* trade, int& index, std::vector<Candle*>& candles) {
 
 }

@@ -64,7 +64,7 @@ class Backtester {
         void executeTrade(
             std::vector<Candle*>& candles,
             TradeType& type,
-            int index,
+            int& index,
             double* balance,
             double& shareOfBalance,
             double& maxStopLoss

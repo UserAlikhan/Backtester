@@ -139,7 +139,7 @@ bool Backtester::confirmSignalAcrossIndicators(
 void Backtester::executeTrade(
     std::vector<Candle*>& candles,
     TradeType& type,
-    int index,
+    int& index,
     double* balance,
     double& shareOfBalance,
     double& maxStopLoss

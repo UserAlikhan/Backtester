@@ -18,7 +18,7 @@ void FixedStopLoss::setPrice(Trade* trade, double& entryPrice) {
     std::cout << "stop-loss: " << price << " for entry: " << entryPrice << std::endl;
 }
 
-void FixedStopLoss::checkExit(Trade* trade, int index, std::vector<Candle*>& candles) {
+void FixedStopLoss::checkExit(Trade* trade, int& index, std::vector<Candle*>& candles) {
     for (size_t i = index; i < candles.size(); i++) {
         // if price is bigger than stop loss close the long trade
         if (trade->getTradeType() == TradeType::LONG && price >= candles[i]->close) {
