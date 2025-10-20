@@ -6,7 +6,7 @@
 class StopLoss {
     protected:
         double percentage;
-        double price;
+        double price = 0.0;
 
     public:
         StopLoss(double percentage);

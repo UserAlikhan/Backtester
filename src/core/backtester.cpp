@@ -152,25 +152,11 @@ void Backtester::executeTrade(
     // open a new trade
     Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[index]->close);
     addTrade(trade);
-    std::cout << type << " trade was opened." << " Entry price: " 
-        << candles[index]->close 
+    std::cout << type << " index: " << index << " trade was opened." << " Entry price: " 
+        << trade->getEntryPrice()
         << ". Share of balance: " << *balance * shareOfBalance / 100 
         << std::endl;
 
-    // set a new stop loss
-    // FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
-    // fixedStopLoss->setPrice(trade, candles[index]->close);
-    // addStopLoss(fixedStopLoss);
-    // std::cout << "Index: " << index << "Stop loss: " << fixedStopLoss->getPrice() << std::endl;
-
-    // // set a new trailing stop loss if specified
-    // if (trailingStopLoss != 0.0) {
-    //     TrailingStopLoss* tsl = new TrailingStopLoss(trailingStopLoss);
-    //     tsl->setPrice(trade, candles[index]->close);
-    // }
-
-    // fixedStopLoss->checkExit(trade, index, candles);
-    // trade->calculatePL(balance);
     checkAllCloseOrders(candles, trade, index, maxStopLoss, takeProfit, trailingStopLoss);
     trade->calculatePL(balance);
 
@@ -257,12 +243,20 @@ void Backtester::checkAllCloseOrders(
 
     for (size_t i = index; i < candles.size(); i++) {
         double close = candles[i]->close;
+        tsl->setPrice(trade, close);
         
-        if (tsl) {
-            if ((trade->getTradeType() == LONG  && close > trade->getEntryPrice()) ||
-                (trade->getTradeType() == SHORT && close < trade->getEntryPrice())
-            ) {
-                tsl->setPrice(trade, close);
+        // take profit case
+
+        // trailing stop loss
+        if (tsl->getPrice() > 0.0) {
+            if (trade->getTradeType() == TradeType::LONG && close <= tsl->getPrice()) {
+                trade->closeTrade(tsl->getPrice());
+                std::cout << "TR SL HIT (LONG). CLOSE PRICE: " << tsl->getPrice() << std::endl;
+                return;
+            } else if (trade->getTradeType() == TradeType::SHORT && close >= tsl->getPrice()) {
+                trade->closeTrade(tsl->getPrice());
+                std::cout << "TR SL HIT (SHORT). CLOSE PRICE: " << tsl->getPrice() << std::endl;
+                return;
             }
         }
 
@@ -270,37 +264,15 @@ void Backtester::checkAllCloseOrders(
         if (fixedSl) {
             // if price is bigger than stop loss close the long trade
             if (trade->getTradeType() == TradeType::LONG && fixedSl->getPrice() >= close) {
-                trade->closeTrade(close);
-                std::cout << "CLOSE PRICE " << close << std::endl;
-                break;
+                trade->closeTrade(fixedSl->getPrice());
+                std::cout << "CLOSE PRICE " << fixedSl->getPrice() << std::endl;
+                return;
             // if price is lower than stop loss close the short trade
             } else if (trade->getTradeType() == TradeType::SHORT && fixedSl->getPrice() <= close) {
-                trade->closeTrade(close);
-                std::cout << "CLOSE PRICE " << close << std::endl;
-                break;
+                trade->closeTrade(fixedSl->getPrice());
+                std::cout << "CLOSE PRICE " << fixedSl->getPrice() << std::endl;
+                return;
             } 
-        }
-
-        // take profit case
-        if (tsl) {
-            // trailing stop works only when trade is in money
-            if (
-                trade->getTradeType() == TradeType::LONG && 
-                // tsl->getPrice() > trade->getEntryPrice() && 
-                tsl->getPrice() >= close
-            ) {
-                trade->closeTrade(tsl->getPrice());
-                std::cout << "Trailing stop close long " << close << std::endl;
-                break;
-            } else if ( 
-                trade->getTradeType() == TradeType::SHORT && 
-                // tsl->getPrice() < trade->getEntryPrice() && 
-                tsl->getPrice() <= close
-            ) {
-                trade->closeTrade(tsl->getPrice());
-                std::cout << "Trailing stop close short " << close << std::endl;
-                break;
-            }
         }
 
         // if we reached the end of the dataset and we do not have close price, 
@@ -308,6 +280,7 @@ void Backtester::checkAllCloseOrders(
         if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
             trade->closeTrade(candles[i]->close);
             std::cout << "Closed by market (no stop hit): " << close << std::endl;
+            return;
         }
 
         // trailing stop loss case
