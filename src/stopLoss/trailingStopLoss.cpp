@@ -3,25 +3,26 @@
 
 TrailingStopLoss::TrailingStopLoss(double percentage) : StopLoss(percentage) {}
 
-void TrailingStopLoss::setPrice(Trade* trade, double& orderPrice) {
+void TrailingStopLoss::setPrice(Trade* trade, double& currentPrice) {
     switch(trade->getTradeType()) {
         case LONG: {
             // if they are equal, it means we just opened the trade
-            if (trade->getEntryPrice() == orderPrice) {
+            if (trade->getEntryPrice() == currentPrice) {
                 price = trade->getEntryPrice() * (1 - percentage / 100);
             // move trailing stop loss if price rised (LONG CASE)
-            } else if (trade->getEntryPrice() < orderPrice) {
-                price = orderPrice * (1 - percentage / 100);
+            } else if (trade->getEntryPrice() < currentPrice) {
+                price = currentPrice * (1 - percentage / 100);
             }
 
             break;
         }
         case SHORT: {
-            if (trade->getEntryPrice() == orderPrice) {
-                price = orderPrice * (1 + percentage / 100);
+            // if they are equal, it means we just opened the trade
+            if (trade->getEntryPrice() == currentPrice) {
+                price = currentPrice * (1 + percentage / 100);
             // move trailing price is price declined (SHORT CASE)
-            } else if (trade->getEntryPrice() > orderPrice) {
-                price = orderPrice * (1 + percentage / 100);
+            } else if (trade->getEntryPrice() > currentPrice) {
+                price = currentPrice * (1 + percentage / 100);
             }
 
             break;

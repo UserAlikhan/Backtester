@@ -30,7 +30,7 @@ class Backtester {
         void addStopLoss(StopLoss* stopLoss);
 
         // handles user prompts
-        void getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& shareOfBalance);
+        void getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& takeProfit, double& shareOfBalance);
 
         // calculates indicators and gathers their intersection signals
         void prepareIndicators(
@@ -48,9 +48,12 @@ class Backtester {
             std::unordered_map<std::string, bool>& indicatorTriggerStatus,
             double* balance,
             double& shareOfBalance,
-            double& maxStopLoss
+            double& maxStopLoss,
+            double& takeProfit,
+            double& trailingStopLoss
         );
 
+        // iterates through intersection signals and compares it with main indicator
         bool confirmSignalAcrossIndicators(
             std::vector<Indicator*>& indicators,
             const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
@@ -67,7 +70,18 @@ class Backtester {
             int& index,
             double* balance,
             double& shareOfBalance,
-            double& maxStopLoss
+            double& maxStopLoss,
+            double& takeProfit,
+            double& trailingStopLoss
+        );
+
+        void checkAllCloseOrders(
+            std::vector<Candle*>& candles,
+            Trade* trade,
+            int& index,
+            double& maxStopLoss,
+            double& takeProfit,
+            double& trailingStopLoss
         );
 
         // run backtest

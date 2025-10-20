@@ -65,7 +65,7 @@ void ascendingSortIntersections(
     );
 }
 
-void Backtester::getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& shareOfBalance) {
+void Backtester::getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& takeProfit, double& shareOfBalance) {
     std::string trailingStopLossAnswer;
 
     std::cout << "Specify maximum stop loss: ";
@@ -77,6 +77,9 @@ void Backtester::getUserInputs(double& maxStopLoss, double& trailingStopLoss, do
     if (trailingStopLossAnswer == "Yes") {
         std::cout << "Specify trailing stop: ";
         std::cin >> trailingStopLoss;
+    } else if (trailingStopLossAnswer == "No") {
+        std::cout << "Specify take profit: ";
+        std::cin >> takeProfit;
     }
 
     std::cout << "Enter a share of balance you want to use for trades (%): ";
@@ -142,7 +145,9 @@ void Backtester::executeTrade(
     int& index,
     double* balance,
     double& shareOfBalance,
-    double& maxStopLoss
+    double& maxStopLoss,
+    double& takeProfit,
+    double& trailingStopLoss
 ) {
     // open a new trade
     Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[index]->close);
@@ -153,19 +158,27 @@ void Backtester::executeTrade(
         << std::endl;
 
     // set a new stop loss
-    FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
-    fixedStopLoss->setPrice(trade, candles[index]->close);
-    addStopLoss(fixedStopLoss);
-    std::cout << "Index: " << index << "Stop loss: " << fixedStopLoss->getPrice() << std::endl;
+    // FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
+    // fixedStopLoss->setPrice(trade, candles[index]->close);
+    // addStopLoss(fixedStopLoss);
+    // std::cout << "Index: " << index << "Stop loss: " << fixedStopLoss->getPrice() << std::endl;
 
-    fixedStopLoss->checkExit(trade, index, candles);
-    trade->calculatePL(balance);
-    std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
-    // if (*balance > 0) {
-    //     std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
-    // } else {
-    //     std::cout << type << " Trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    // // set a new trailing stop loss if specified
+    // if (trailingStopLoss != 0.0) {
+    //     TrailingStopLoss* tsl = new TrailingStopLoss(trailingStopLoss);
+    //     tsl->setPrice(trade, candles[index]->close);
     // }
+
+    // fixedStopLoss->checkExit(trade, index, candles);
+    // trade->calculatePL(balance);
+    checkAllCloseOrders(candles, trade, index, maxStopLoss, takeProfit, trailingStopLoss);
+    trade->calculatePL(balance);
+
+    if (*balance > 0) {
+        std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    } else {
+        std::cout << type << " Trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    }
     std::cout << "Current Balance: " << *balance << "\n" << std::endl;
 }
 
@@ -176,7 +189,9 @@ void Backtester::processTradeSignals(
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
     double* balance,
     double& shareOfBalance,
-    double& maxStopLoss
+    double& maxStopLoss,
+    double& takeProfit,
+    double& trailingStopLoss
 ) {
     // iterate over intersections 
     for (const auto& pair : intersections) {
@@ -204,7 +219,8 @@ void Backtester::processTradeSignals(
             else if (confirmed) {
                 executeTrade(
                     candles, type, index, balance, 
-                    shareOfBalance, maxStopLoss
+                    shareOfBalance, maxStopLoss,
+                    takeProfit, trailingStopLoss
                 );
             }
 
@@ -217,6 +233,90 @@ void Backtester::processTradeSignals(
     }
 }
 
+void Backtester::checkAllCloseOrders(
+    std::vector<Candle*>& candles,
+    Trade* trade,
+    int& index,
+    double& maxStopLoss,
+    double& takeProfit,
+    double& trailingStopLoss
+) { 
+    FixedStopLoss* fixedSl = nullptr;
+    TrailingStopLoss* tsl = nullptr;
+
+    if (maxStopLoss > 0.0) {
+        fixedSl = new FixedStopLoss(maxStopLoss);
+        fixedSl->setPrice(trade, candles[index]->close);
+    }
+
+    if (trailingStopLoss > 0.0) {
+        tsl = new TrailingStopLoss(trailingStopLoss);
+        tsl->setPrice(trade, candles[index]->close);
+    }
+    // TODO: take profit case
+
+    for (size_t i = index; i < candles.size(); i++) {
+        double close = candles[i]->close;
+        
+        if (tsl) {
+            if ((trade->getTradeType() == LONG  && close > trade->getEntryPrice()) ||
+                (trade->getTradeType() == SHORT && close < trade->getEntryPrice())
+            ) {
+                tsl->setPrice(trade, close);
+            }
+        }
+
+        // stop loss case
+        if (fixedSl) {
+            // if price is bigger than stop loss close the long trade
+            if (trade->getTradeType() == TradeType::LONG && fixedSl->getPrice() >= close) {
+                trade->closeTrade(close);
+                std::cout << "CLOSE PRICE " << close << std::endl;
+                break;
+            // if price is lower than stop loss close the short trade
+            } else if (trade->getTradeType() == TradeType::SHORT && fixedSl->getPrice() <= close) {
+                trade->closeTrade(close);
+                std::cout << "CLOSE PRICE " << close << std::endl;
+                break;
+            } 
+        }
+
+        // take profit case
+        if (tsl) {
+            // trailing stop works only when trade is in money
+            if (
+                trade->getTradeType() == TradeType::LONG && 
+                // tsl->getPrice() > trade->getEntryPrice() && 
+                tsl->getPrice() >= close
+            ) {
+                trade->closeTrade(tsl->getPrice());
+                std::cout << "Trailing stop close long " << close << std::endl;
+                break;
+            } else if ( 
+                trade->getTradeType() == TradeType::SHORT && 
+                // tsl->getPrice() < trade->getEntryPrice() && 
+                tsl->getPrice() <= close
+            ) {
+                trade->closeTrade(tsl->getPrice());
+                std::cout << "Trailing stop close short " << close << std::endl;
+                break;
+            }
+        }
+
+        // if we reached the end of the dataset and we do not have close price, 
+        // close the trade using the last datapoint
+        if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
+            trade->closeTrade(candles[i]->close);
+            std::cout << "Closed by market (no stop hit): " << close << std::endl;
+        }
+
+        // trailing stop loss case
+    }
+
+    delete fixedSl;
+    delete tsl;
+}
+
 void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
     if (*balance <= minTradeAmount) {
         std::cout << "Balance is less than minimum trade amount. You cannot make trades" << std::endl;
@@ -224,8 +324,8 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
     }
 
     // 1. Get all user inputs
-    double maxStopLoss, trailingStopLoss, shareOfBalance;
-    getUserInputs(maxStopLoss, trailingStopLoss, shareOfBalance);
+    double maxStopLoss, trailingStopLoss, takeProfit, shareOfBalance;
+    getUserInputs(maxStopLoss, trailingStopLoss, takeProfit, shareOfBalance);
 
     // 2. Prepare indicators and intersection signals
     std::unordered_map<std::string, bool> indicatorTriggerStatus;
@@ -239,7 +339,7 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
     // 4. Process signals and run trades
     processTradeSignals(
         candles, indicators, intersections, indicatorTriggerStatus,
-        balance, shareOfBalance, maxStopLoss
+        balance, shareOfBalance, maxStopLoss, takeProfit, trailingStopLoss
     );
 
     std::cout << "Number of trades: " << trades.size() << std::endl;
