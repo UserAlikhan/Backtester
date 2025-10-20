@@ -1,14 +1,11 @@
 #pragma once
 #include <iostream>
-#include "trade.h"
 #include "closeOrder.h"
-#include "tradeTypeEnum.h"
-#include "candle.h"
 
-class FixedStopLoss : public CloseOrder {
+class TakeProfit : public CloseOrder {
     public:
-        FixedStopLoss(double percentage);
-        
+        TakeProfit(double percentage);
+
         void setPrice(Trade* trade, double& entryPrice) override;
         void checkExit(Trade* trade, double close) override;
 };

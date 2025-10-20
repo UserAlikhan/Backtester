@@ -1,7 +1,7 @@
 #include "fixedStopLoss.h"
 #include <iostream>
 
-FixedStopLoss::FixedStopLoss(double percentage) : StopLoss(percentage) {};
+FixedStopLoss::FixedStopLoss(double percentage) : CloseOrder(percentage) {};
 
 void FixedStopLoss::setPrice(Trade* trade, double& entryPrice) {
     switch(trade->getTradeType()) {
@@ -18,22 +18,19 @@ void FixedStopLoss::setPrice(Trade* trade, double& entryPrice) {
     std::cout << "stop-loss: " << price << " for entry: " << entryPrice << std::endl;
 }
 
-void FixedStopLoss::checkExit(Trade* trade, int& index, std::vector<Candle*>& candles) {
-    for (size_t i = index; i < candles.size(); i++) {
+void FixedStopLoss::checkExit(Trade* trade, double close) {
+    if (trade->getClosePrice() != 0.0) return;
+    if (price > 0.0) {
         // if price is bigger than stop loss close the long trade
-        if (trade->getTradeType() == TradeType::LONG && price >= candles[i]->close) {
-            trade->closeTrade(candles[i]->close);
-            std::cout << "CLOSE PRICE " << candles[i]->close << std::endl;
+        if (trade->getTradeType() == TradeType::LONG && price >= close) {
+            trade->closeTrade(price);
+            std::cout << "CLOSE PRICE " << price << std::endl;
             return;
         // if price is lower than stop loss close the short trade
-        } else if (trade->getTradeType() == TradeType::SHORT && price <= candles[i]->close) {
-            trade->closeTrade(candles[i]->close);
-            std::cout << "CLOSE PRICE " << candles[i]->close << std::endl;
+        } else if (trade->getTradeType() == TradeType::SHORT && price <= close) {
+            trade->closeTrade(price);
+            std::cout << "CLOSE PRICE " << price << std::endl;
             return;
-        // if we reached the end of the dataset and we do not have close price, 
-        // close the trade using the last datapoint
-        } else if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
-            trade->closeTrade(candles[i]->close);
-        }
+        } 
     }
 }

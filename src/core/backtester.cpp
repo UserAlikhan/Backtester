@@ -23,7 +23,7 @@ void Backtester::addTrade(Trade* trade) {
     trades.push_back(trade);
 }
 
-void Backtester::addStopLoss(StopLoss* stopLoss) {
+void Backtester::addStopLoss(CloseOrder* stopLoss) {
     stopLosses.push_back(stopLoss);
 }
 
@@ -71,15 +71,15 @@ void Backtester::getUserInputs(double& maxStopLoss, double& trailingStopLoss, do
     std::cout << "Specify maximum stop loss: ";
     std::cin >> maxStopLoss;
 
+    std::cout << "Specify take profit: ";
+    std::cin >> takeProfit;
+
     std::cout << "Do you need trailing stop loss? (Yes / No): ";
     std::cin >> trailingStopLossAnswer;
 
     if (trailingStopLossAnswer == "Yes") {
         std::cout << "Specify trailing stop: ";
         std::cin >> trailingStopLoss;
-    } else if (trailingStopLossAnswer == "No") {
-        std::cout << "Specify take profit: ";
-        std::cin >> takeProfit;
     }
 
     std::cout << "Enter a share of balance you want to use for trades (%): ";
@@ -116,7 +116,8 @@ bool Backtester::confirmSignalAcrossIndicators(
     for (const auto& otherPair: intersections) {
         const std::string& otherIndicatorName = otherPair.first;
         const auto& otherIndicatorSignals = otherPair.second;
-                
+       
+        // skip main indicator   
         if (otherIndicatorName == mainIndicator) continue;
 
         for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
@@ -229,10 +230,16 @@ void Backtester::checkAllCloseOrders(
 ) { 
     FixedStopLoss* fixedSl = nullptr;
     TrailingStopLoss* tsl = nullptr;
+    TakeProfit* tkP = nullptr;
 
     if (maxStopLoss > 0.0) {
         fixedSl = new FixedStopLoss(maxStopLoss);
         fixedSl->setPrice(trade, candles[index]->close);
+    }
+
+    if (takeProfit > 0.0) {
+        tkP = new TakeProfit(takeProfit);
+        tkP->setPrice(trade, candles[index]->close);
     }
 
     if (trailingStopLoss > 0.0) {
@@ -242,44 +249,24 @@ void Backtester::checkAllCloseOrders(
     // TODO: take profit case
 
     for (size_t i = index; i < candles.size(); i++) {
+        if (trade->getClosePrice() != 0.0) break;
         double close = candles[i]->close;
         tsl->setPrice(trade, close);
 
-        // trailing stop loss
-        if (tsl->getPrice() > 0.0) {
-            if (trade->getTradeType() == TradeType::LONG && close <= tsl->getPrice()) {
-                trade->closeTrade(tsl->getPrice());
-                std::cout << "TR SL HIT (LONG). CLOSE PRICE: " << tsl->getPrice() << std::endl;
-                return;
-            } else if (trade->getTradeType() == TradeType::SHORT && close >= tsl->getPrice()) {
-                trade->closeTrade(tsl->getPrice());
-                std::cout << "TR SL HIT (SHORT). CLOSE PRICE: " << tsl->getPrice() << std::endl;
-                return;
-            }
-        }
-
         // stop loss case
-        if (fixedSl->getPrice() > 0.0) {
-            // if price is bigger than stop loss close the long trade
-            if (trade->getTradeType() == TradeType::LONG && fixedSl->getPrice() >= close) {
-                trade->closeTrade(fixedSl->getPrice());
-                std::cout << "CLOSE PRICE " << fixedSl->getPrice() << std::endl;
-                return;
-            // if price is lower than stop loss close the short trade
-            } else if (trade->getTradeType() == TradeType::SHORT && fixedSl->getPrice() <= close) {
-                trade->closeTrade(fixedSl->getPrice());
-                std::cout << "CLOSE PRICE " << fixedSl->getPrice() << std::endl;
-                return;
-            } 
-        }
+        fixedSl->checkExit(trade, close);
 
         // take profit case
+        tkP->checkExit(trade, close);
+
+        // trailing stop loss
+        tsl->checkExit(trade, close);
 
         // if we reached the end of the dataset and we do not have close price, 
         // close the trade using the last datapoint
         if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
             trade->closeTrade(candles[i]->close);
-            std::cout << "End of the dataset. Closed by market (no stop hit): " << close << std::endl;
+            std::cout << "End of the dataset. Closed by market (no stop hit): " << candles[i]->close << std::endl;
             return;
         }
     }

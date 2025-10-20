@@ -297,6 +297,30 @@ src/statistics/statistic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s
 .PHONY : src/statistics/statistic.cpp.s
 
+src/stopLoss/closeOrder.o: src/stopLoss/closeOrder.cpp.o
+.PHONY : src/stopLoss/closeOrder.o
+
+# target to build an object file
+src/stopLoss/closeOrder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o
+.PHONY : src/stopLoss/closeOrder.cpp.o
+
+src/stopLoss/closeOrder.i: src/stopLoss/closeOrder.cpp.i
+.PHONY : src/stopLoss/closeOrder.i
+
+# target to preprocess a source file
+src/stopLoss/closeOrder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.i
+.PHONY : src/stopLoss/closeOrder.cpp.i
+
+src/stopLoss/closeOrder.s: src/stopLoss/closeOrder.cpp.s
+.PHONY : src/stopLoss/closeOrder.s
+
+# target to generate assembly for a file
+src/stopLoss/closeOrder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.s
+.PHONY : src/stopLoss/closeOrder.cpp.s
+
 src/stopLoss/fixedStopLoss.o: src/stopLoss/fixedStopLoss.cpp.o
 .PHONY : src/stopLoss/fixedStopLoss.o
 
@@ -321,29 +345,29 @@ src/stopLoss/fixedStopLoss.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.s
 .PHONY : src/stopLoss/fixedStopLoss.cpp.s
 
-src/stopLoss/stopLoss.o: src/stopLoss/stopLoss.cpp.o
-.PHONY : src/stopLoss/stopLoss.o
+src/stopLoss/takeProfit.o: src/stopLoss/takeProfit.cpp.o
+.PHONY : src/stopLoss/takeProfit.o
 
 # target to build an object file
-src/stopLoss/stopLoss.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o
-.PHONY : src/stopLoss/stopLoss.cpp.o
+src/stopLoss/takeProfit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o
+.PHONY : src/stopLoss/takeProfit.cpp.o
 
-src/stopLoss/stopLoss.i: src/stopLoss/stopLoss.cpp.i
-.PHONY : src/stopLoss/stopLoss.i
+src/stopLoss/takeProfit.i: src/stopLoss/takeProfit.cpp.i
+.PHONY : src/stopLoss/takeProfit.i
 
 # target to preprocess a source file
-src/stopLoss/stopLoss.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.i
-.PHONY : src/stopLoss/stopLoss.cpp.i
+src/stopLoss/takeProfit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.i
+.PHONY : src/stopLoss/takeProfit.cpp.i
 
-src/stopLoss/stopLoss.s: src/stopLoss/stopLoss.cpp.s
-.PHONY : src/stopLoss/stopLoss.s
+src/stopLoss/takeProfit.s: src/stopLoss/takeProfit.cpp.s
+.PHONY : src/stopLoss/takeProfit.s
 
 # target to generate assembly for a file
-src/stopLoss/stopLoss.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.s
-.PHONY : src/stopLoss/stopLoss.cpp.s
+src/stopLoss/takeProfit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.s
+.PHONY : src/stopLoss/takeProfit.cpp.s
 
 src/stopLoss/trailingStopLoss.o: src/stopLoss/trailingStopLoss.cpp.o
 .PHONY : src/stopLoss/trailingStopLoss.o
@@ -423,12 +447,15 @@ help:
 	@echo "... src/statistics/statistic.o"
 	@echo "... src/statistics/statistic.i"
 	@echo "... src/statistics/statistic.s"
+	@echo "... src/stopLoss/closeOrder.o"
+	@echo "... src/stopLoss/closeOrder.i"
+	@echo "... src/stopLoss/closeOrder.s"
 	@echo "... src/stopLoss/fixedStopLoss.o"
 	@echo "... src/stopLoss/fixedStopLoss.i"
 	@echo "... src/stopLoss/fixedStopLoss.s"
-	@echo "... src/stopLoss/stopLoss.o"
-	@echo "... src/stopLoss/stopLoss.i"
-	@echo "... src/stopLoss/stopLoss.s"
+	@echo "... src/stopLoss/takeProfit.o"
+	@echo "... src/stopLoss/takeProfit.i"
+	@echo "... src/stopLoss/takeProfit.s"
 	@echo "... src/stopLoss/trailingStopLoss.o"
 	@echo "... src/stopLoss/trailingStopLoss.i"
 	@echo "... src/stopLoss/trailingStopLoss.s"

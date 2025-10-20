@@ -1,7 +1,7 @@
 #include "trailingStopLoss.h"
 #include <iostream>
 
-TrailingStopLoss::TrailingStopLoss(double percentage) : StopLoss(percentage) {}
+TrailingStopLoss::TrailingStopLoss(double percentage) : CloseOrder(percentage) {}
 
 void TrailingStopLoss::setPrice(Trade* trade, double& currentPrice) {
     switch(trade->getTradeType()) {
@@ -31,6 +31,24 @@ void TrailingStopLoss::setPrice(Trade* trade, double& currentPrice) {
 }
 
 
-void TrailingStopLoss::checkExit(Trade* trade, int& index, std::vector<Candle*>& candles) {
-
+void TrailingStopLoss::checkExit(Trade* trade, double close) {    
+    if (price > 0.0) {
+        if (
+            trade->getTradeType() == TradeType::LONG 
+            && close <= price 
+            && trade->getEntryPrice() < price
+        ) {
+            trade->closeTrade(price);
+            std::cout << "TR SL HIT (LONG). CLOSE PRICE: " <<price << std::endl;
+            return;
+        } else if (
+            trade->getTradeType() == TradeType::SHORT 
+            && close >= price
+            && trade->getEntryPrice() > price
+        ) {
+            trade->closeTrade(price);
+            std::cout << "TR SL HIT (SHORT). CLOSE PRICE: " << price << std::endl;
+            return;
+        }
+    }
 }

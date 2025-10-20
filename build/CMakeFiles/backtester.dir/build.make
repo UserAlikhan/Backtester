@@ -170,10 +170,24 @@ CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp -o CMakeFiles/backtester.dir/src/statistics/statistic.cpp.s
 
+CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.cpp
+CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o -MF CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o.d -o CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.cpp
+
+CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.cpp > CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.i
+
+CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.cpp -o CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.s
+
 CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o: CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.cpp
 CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o -MF CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o.d -o CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.cpp
 
 CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.i: cmake_force
@@ -184,24 +198,24 @@ CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.cpp -o CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.s
 
-CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.cpp
-CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o -MF CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o.d -o CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.cpp
+CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp
+CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o -MF CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o.d -o CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp
 
-CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.cpp > CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.i
+CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp > CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.i
 
-CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/stopLoss.cpp -o CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.s
+CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp -o CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.s
 
 CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o: CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.cpp
 CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o -MF CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o.d -o CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.cpp
 
 CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.s: cmake_force
 CMakeFiles/backtester.dir/src/trade/trade.cpp.o: CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/src/trade/trade.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp
 CMakeFiles/backtester.dir/src/trade/trade.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trade/trade.cpp.o -MF CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d -o CMakeFiles/backtester.dir/src/trade/trade.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp
 
 CMakeFiles/backtester.dir/src/trade/trade.cpp.i: cmake_force
@@ -235,8 +249,9 @@ backtester_OBJECTS = \
 "CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o" \
 "CMakeFiles/backtester.dir/src/main.cpp.o" \
 "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" \
+"CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o" \
 "CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o" \
-"CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o" \
+"CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o" \
 "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o" \
 "CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
 
@@ -250,13 +265,14 @@ backtester: CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o
 backtester: CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o
 backtester: CMakeFiles/backtester.dir/src/main.cpp.o
 backtester: CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o
+backtester: CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o
 backtester: CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o
-backtester: CMakeFiles/backtester.dir/src/stopLoss/stopLoss.cpp.o
+backtester: CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o
 backtester: CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o
 backtester: CMakeFiles/backtester.dir/src/trade/trade.cpp.o
 backtester: CMakeFiles/backtester.dir/build.make
 backtester: CMakeFiles/backtester.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable backtester"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable backtester"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/backtester.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

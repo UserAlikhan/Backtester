@@ -1,9 +1,10 @@
 #pragma once
 #include <vector>
 #include "trade.h"
-#include "stopLoss.h"
+#include "closeOrder.h"
 #include "fixedStopLoss.h"
 #include "trailingStopLoss.h"
+#include "takeProfit.h"
 #include "candle.h"
 #include "indicator.h"
 #include "intersectionEnum.h"
@@ -12,7 +13,7 @@
 class Backtester {
     private:
         std::vector<Trade*> trades;
-        std::vector<StopLoss*> stopLosses;
+        std::vector<CloseOrder*> stopLosses;
     public:
         // constructor
         Backtester();
@@ -27,7 +28,7 @@ class Backtester {
         void addTrade(Trade* trade);
 
         // add stop loss if happened
-        void addStopLoss(StopLoss* stopLoss);
+        void addStopLoss(CloseOrder* stopLoss);
 
         // handles user prompts
         void getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& takeProfit, double& shareOfBalance);
