@@ -15,7 +15,9 @@ class CloseOrder {
         // although trade has entry price we passing another one for trailing stop
         virtual void setPrice(Trade* trade, double& entryPrice) = 0;
 
-        virtual void checkExit(Trade* trade, double close) = 0; // abstact
+        virtual void checkExit(Trade* trade, double close, CloseOrder* closeOrder, 
+            std::vector<Trade*> trades, std::vector<CloseOrder*> stopLosses
+        ) = 0; // abstact
 
         double getPrice() { return price; }
 };

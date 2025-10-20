@@ -1611,6 +1611,7 @@ CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: /Users/alikhanataniyazov/Pro
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h
@@ -4040,6 +4041,7 @@ CMakeFiles/backtester.dir/src/main.cpp.o: /Users/alikhanataniyazov/Projects/Back
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h

@@ -14,6 +14,8 @@ class Backtester {
     private:
         std::vector<Trade*> trades;
         std::vector<CloseOrder*> stopLosses;
+        std::vector<CloseOrder*> takeProfits;
+        std::vector<CloseOrder*> trailingStopLosses;
     public:
         // constructor
         Backtester();
@@ -24,11 +26,17 @@ class Backtester {
         // get all trades made during backtest
         std::vector<Trade*>& getAllTrades() { return trades; }
 
-        // add trade if was closed
+        // add trade
         void addTrade(Trade* trade);
 
-        // add stop loss if happened
+        // add stop loss
         void addStopLoss(CloseOrder* stopLoss);
+
+        // add take profit
+        void addTakeProfit(CloseOrder* takeProfit);
+
+        // add trailing stop loss
+        void addTrailingStopLosses(CloseOrder* trailingStopLoss);
 
         // handles user prompts
         void getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& takeProfit, double& shareOfBalance);

@@ -10,5 +10,7 @@ class FixedStopLoss : public CloseOrder {
         FixedStopLoss(double percentage);
         
         void setPrice(Trade* trade, double& entryPrice) override;
-        void checkExit(Trade* trade, double close) override;
+        void checkExit(Trade* trade, double close, CloseOrder* fixedSl, 
+            std::vector<Trade*> trades, std::vector<CloseOrder*> stopLosses
+        ) override;
 };

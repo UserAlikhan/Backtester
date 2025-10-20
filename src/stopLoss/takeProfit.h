@@ -7,5 +7,8 @@ class TakeProfit : public CloseOrder {
         TakeProfit(double percentage);
 
         void setPrice(Trade* trade, double& entryPrice) override;
-        void checkExit(Trade* trade, double close) override;
+        void checkExit(
+            Trade* trade, double close, CloseOrder* takePr, 
+            std::vector<Trade*> trades, std::vector<CloseOrder*> takeProfits
+        ) override;
 };

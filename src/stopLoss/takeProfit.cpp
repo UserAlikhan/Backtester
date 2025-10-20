@@ -16,17 +16,24 @@ void TakeProfit::setPrice(Trade* trade, double& entryPrice) {
     }
 }
 
-void TakeProfit::checkExit(Trade* trade, double close) {
-    if (trade->getClosePrice() != 0.0) return;
-    
+void TakeProfit::checkExit(
+    Trade* trade, double close, CloseOrder* takePr, 
+    std::vector<Trade*> trades, std::vector<CloseOrder*> takeProfits
+) {
     // if price is bigger or the same as take profit close the profitable long trade
     if (trade->getTradeType() == TradeType::LONG && price <= close) {
         trade->closeTrade(price);
+        // push into arrays
+        trades.push_back(trade);
+        takeProfits.push_back(takePr);
         std::cout << "TAKE PROFIT PRICE " << price << std::endl;
         return;
     // if price is lower or the same as take profit close the profitable short trade
     } else if (trade->getTradeType() == TradeType::SHORT && price >= close) {
         trade->closeTrade(price);
+        // push into arrays
+        trades.push_back(trade);
+        takeProfits.push_back(takePr);
         std::cout << "TAKE PROFIT PRICE " << price << std::endl;
         return;
     } 

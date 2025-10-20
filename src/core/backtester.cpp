@@ -14,8 +14,16 @@ Backtester::~Backtester() {
         delete t;
     }
 
-    for (auto sl: stopLosses) {
+    for (auto sl : stopLosses) {
         delete sl;
+    }
+
+    for (auto tp : takeProfits) {
+        delete tp;
+    }
+
+    for (auto trSl : trailingStopLosses) {
+        delete trSl;
     }
 }
 
@@ -23,8 +31,16 @@ void Backtester::addTrade(Trade* trade) {
     trades.push_back(trade);
 }
 
-void Backtester::addStopLoss(CloseOrder* stopLoss) {
-    stopLosses.push_back(stopLoss);
+void Backtester::addStopLoss(CloseOrder* stopL) {
+    stopLosses.push_back(stopL);
+}
+
+void Backtester::addTakeProfit(CloseOrder* takeP) {
+    takeProfits.push_back(takeP);
+}
+
+void Backtester::addTrailingStopLosses(CloseOrder* trailingSL) {
+    trailingStopLosses.push_back(trailingSL);
 }
 
 void resetTriggerStatus(
@@ -250,29 +266,29 @@ void Backtester::checkAllCloseOrders(
 
     for (size_t i = index; i < candles.size(); i++) {
         if (trade->getClosePrice() != 0.0) break;
+
         double close = candles[i]->close;
-        tsl->setPrice(trade, close);
+        // if tsl specified update its position at every iteration
+        if (tsl) tsl->setPrice(trade, close);
 
         // stop loss case
-        fixedSl->checkExit(trade, close);
+        if (fixedSl) fixedSl->checkExit(trade, close, fixedSl, trades, stopLosses);
 
         // take profit case
-        tkP->checkExit(trade, close);
+        if (tkP) tkP->checkExit(trade, close, tkP, trades, takeProfits);
 
         // trailing stop loss
-        tsl->checkExit(trade, close);
+        if (tsl) tsl->checkExit(trade, close, tsl, trades, trailingStopLosses);
 
         // if we reached the end of the dataset and we do not have close price, 
         // close the trade using the last datapoint
         if (i == candles.size() - 1 && trade->getClosePrice() == 0.0) {
             trade->closeTrade(candles[i]->close);
+            trades.push_back(trade);
             std::cout << "End of the dataset. Closed by market (no stop hit): " << candles[i]->close << std::endl;
             return;
         }
     }
-
-    delete fixedSl;
-    delete tsl;
 }
 
 void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {

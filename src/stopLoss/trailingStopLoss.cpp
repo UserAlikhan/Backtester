@@ -31,7 +31,10 @@ void TrailingStopLoss::setPrice(Trade* trade, double& currentPrice) {
 }
 
 
-void TrailingStopLoss::checkExit(Trade* trade, double close) {    
+void TrailingStopLoss::checkExit(
+    Trade* trade, double close, CloseOrder* trailingSL, 
+    std::vector<Trade*> trades, std::vector<CloseOrder*> trailingStopLosses
+) {    
     if (price > 0.0) {
         if (
             trade->getTradeType() == TradeType::LONG 
@@ -39,6 +42,9 @@ void TrailingStopLoss::checkExit(Trade* trade, double close) {
             && trade->getEntryPrice() < price
         ) {
             trade->closeTrade(price);
+            // push into arrays
+            trades.push_back(trade);
+            trailingStopLosses.push_back(trailingSL);
             std::cout << "TR SL HIT (LONG). CLOSE PRICE: " <<price << std::endl;
             return;
         } else if (
@@ -47,6 +53,9 @@ void TrailingStopLoss::checkExit(Trade* trade, double close) {
             && trade->getEntryPrice() > price
         ) {
             trade->closeTrade(price);
+            // push into arrays
+            trades.push_back(trade);
+            trailingStopLosses.push_back(trailingSL);
             std::cout << "TR SL HIT (SHORT). CLOSE PRICE: " << price << std::endl;
             return;
         }

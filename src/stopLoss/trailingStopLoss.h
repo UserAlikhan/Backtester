@@ -9,5 +9,8 @@ class TrailingStopLoss : public CloseOrder {
         TrailingStopLoss(double percentage);
         
         void setPrice(Trade* trade, double& currentPrice) override;
-        void checkExit(Trade* trade, double close) override;
+        void checkExit(
+            Trade* trade, double close, CloseOrder* trailingSL, 
+            std::vector<Trade*> trades, std::vector<CloseOrder*> trailingStopLosses
+        ) override;
 };
