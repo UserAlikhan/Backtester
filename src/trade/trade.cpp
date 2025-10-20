@@ -26,43 +26,40 @@ double Trade::calculateLiquidationPrice(double* currentBalance) {
 }
 
 void Trade::calculatePL(double* currentBalance) {
-    if (*currentBalance == 0) return;
-
     switch(tradeType) {
         case LONG: {
             PL = transactionAmount * (closePrice - entryPrice);
+            PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
 
-            double loss = transactionAmount * (entryPrice - closePrice);
-
-            if (loss >= *currentBalance) {
+            if (PL <= -(*currentBalance)) {
                 // check liquidation price if loss exceeds the balance
                 double liquidationPrice = calculateLiquidationPrice(currentBalance);
                 this->closePrice = liquidationPrice;
                 *currentBalance = 0;
+                std::cout << "LONG trade liquidated at: " << liquidationPrice << std::endl;
+                return;
             }
-
-            PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
+            
+            *currentBalance += PL;
             break;
         }
         case SHORT: {
             PL = transactionAmount * (entryPrice - closePrice);
-            
-            double loss = transactionAmount * (closePrice - entryPrice);
+            PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
+
             // check liquidation price if loss exceeds the balance
-            if (loss >= *currentBalance) {
+            if (PL < -(*currentBalance)) {
                 double liquidationPrice = calculateLiquidationPrice(currentBalance);
                 this->closePrice = liquidationPrice;
                 *currentBalance = 0;
+                std::cout << "SHORT trade liquidated at: " << liquidationPrice << std::endl;
+                return;
             }
 
-            PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
+            *currentBalance += PL;
             break;
         }
     }
-}
-
-void Trade::recalculateBalance(double* currentBalance) {
-    *currentBalance += PL;
 }
 
 // Trade::Trade(

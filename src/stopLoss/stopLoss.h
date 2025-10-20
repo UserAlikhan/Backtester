@@ -16,4 +16,6 @@ class StopLoss {
         virtual void setPrice(Trade* trade, double& entryPrice) = 0;
 
         virtual void checkExit(Trade* trade, int index, std::vector<Candle*>& candles) = 0; // abstact
+
+        double getPrice() { return price; }
 };

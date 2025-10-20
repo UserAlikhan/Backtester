@@ -3,6 +3,8 @@
 #include <unordered_map>
 #include <algorithm>
 
+const double minTradeAmount = 2.0;
+
 // constructor
 Backtester::Backtester() {};
 
@@ -63,33 +65,30 @@ void ascendingSortIntersections(
     );
 }
 
-void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
-    if (*balance <= 0) {
-        std::cout << "Balance is zero. You cannot make trades" << std::endl;
-    }
-
-    // USER PROMPTS
-    double maxStopLoss, trailingStopLoss, shareOfBalance;
+void Backtester::getUserInputs(double& maxStopLoss, double& trailingStopLoss, double& shareOfBalance) {
     std::string trailingStopLossAnswer;
 
-    std::cout << "Speficy maximum stop loss: " << std::endl;
+    std::cout << "Specify maximum stop loss: ";
     std::cin >> maxStopLoss;
 
-    std::cout << "Do you need trailing stop loss? (Yes / No)" << std::endl;
+    std::cout << "Do you need trailing stop loss? (Yes / No): ";
     std::cin >> trailingStopLossAnswer;
 
     if (trailingStopLossAnswer == "Yes") {
-        std::cout << "Specify trailing stop: " << std::endl;
+        std::cout << "Specify trailing stop: ";
         std::cin >> trailingStopLoss;
     }
 
-    std::cout << "Enter a share of balance you want to use for trades (%): " << std::endl;
+    std::cout << "Enter a share of balance you want to use for trades (%): ";
     std::cin >> shareOfBalance;
+}
 
-    // BACKTEST RUNNER
-    std::unordered_map<std::string, bool> indicatorTriggerStatus;
-    std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>> intersections;
-
+void Backtester::prepareIndicators(
+    std::vector<Indicator*>& indicators,
+    std::vector<Candle*>& candles,
+    std::unordered_map<std::string, bool>& indicatorTriggerStatus,
+    std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections
+) {
     for (auto indicator: indicators) {
         indicator->calculate(candles);
         // fill hashmap with indicator name
@@ -100,10 +99,85 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
             intersections.push_back({indicator->getName(), inter->findIntersections()});
         }
     }
+}
 
-    // sort intersections
-    ascendingSortIntersections(intersections);
+bool Backtester::confirmSignalAcrossIndicators(
+    std::vector<Indicator*>& indicators,
+    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
+    std::unordered_map<std::string, bool>& indicatorTriggerStatus,
+    const std::string& mainIndicator,
+    TradeType& type,
+    int& index
+) {
+    // run over indicators and check if there are trade signal matches with LEADING INDICATOR
+    for (const auto& otherPair: intersections) {
+        const std::string& otherIndicatorName = otherPair.first;
+        const auto& otherIndicatorSignals = otherPair.second;
+                
+        if (otherIndicatorName == mainIndicator) continue;
 
+        for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
+            // checks price index to be the same and trade type to be the same
+            if (otherIndicatorSignal.second == index && otherIndicatorSignal.first == type) {
+                indicatorTriggerStatus[otherPair.first] = true;
+                break;
+            }
+        }
+
+        // if there are no such intersection in other indicators, break and go to new trade signal
+        if (indicatorTriggerStatus[otherIndicatorName] == false) {
+            // reset the trigger status
+            resetTriggerStatus(indicators, indicatorTriggerStatus);
+            break;
+        }
+    }
+
+    // check hash map, so all indicators have the same trade signal
+    return checkTradeSignal(indicatorTriggerStatus);
+}
+
+void Backtester::executeTrade(
+    std::vector<Candle*>& candles,
+    TradeType& type,
+    int index,
+    double* balance,
+    double& shareOfBalance,
+    double& maxStopLoss
+) {
+    // open a new trade
+    Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[index]->close);
+    addTrade(trade);
+    std::cout << type << " trade was opened." << " Entry price: " 
+        << candles[index]->close 
+        << ". Share of balance: " << *balance * shareOfBalance / 100 
+        << std::endl;
+
+    // set a new stop loss
+    FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
+    fixedStopLoss->setPrice(trade, candles[index]->close);
+    addStopLoss(fixedStopLoss);
+    std::cout << "Index: " << index << "Stop loss: " << fixedStopLoss->getPrice() << std::endl;
+
+    fixedStopLoss->checkExit(trade, index, candles);
+    trade->calculatePL(balance);
+    std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    // if (*balance > 0) {
+    //     std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    // } else {
+    //     std::cout << type << " Trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
+    // }
+    std::cout << "Current Balance: " << *balance << "\n" << std::endl;
+}
+
+void Backtester::processTradeSignals(
+    std::vector<Candle*>& candles,
+    std::vector<Indicator*>& indicators,
+    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
+    std::unordered_map<std::string, bool>& indicatorTriggerStatus,
+    double* balance,
+    double& shareOfBalance,
+    double& maxStopLoss
+) {
     // iterate over intersections 
     for (const auto& pair : intersections) {
         const std::string& indicatorName = pair.first;
@@ -118,59 +192,20 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
 
             TradeType type = signal.first;
             int index = signal.second;
-            
-            // run over OTHER indicators and check if there are trade signals at index
-            for (const auto& otherPair: intersections) {
-                const std::string& otherIndicatorName = otherPair.first;
-                const auto& otherIndicatorSignals = otherPair.second;
-                
-                if (otherIndicatorName == indicatorName) continue;
 
-                for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
-                    // checks price index to be the same and trade type to be the same
-                    if (otherIndicatorSignal.second == index && otherIndicatorSignal.first == signal.first) {
-                        indicatorTriggerStatus[otherPair.first] = true;
-                        break;
-                    }
-                }
-
-                // if there is no such intersection in other indicators, break and go to new trade signal
-                if (indicatorTriggerStatus[otherIndicatorName] == false) {
-                    // reset the trigger status
-                    resetTriggerStatus(indicators, indicatorTriggerStatus);
-                    break;
-                }
-            }
-
-            // if there is trade signal in all indicators execute trade
-            bool confirmation = checkTradeSignal(indicatorTriggerStatus);
+            // confirm intersection with other indicators
+            bool confirmed = confirmSignalAcrossIndicators(
+                indicators, intersections, indicatorTriggerStatus, 
+                indicatorName, type, index
+            );
 
             // if balance gets to 0 no further trades available
-            if (*balance <= 0 ) break;
-            else if (confirmation && *balance > 0) {
-                // open a new trade
-                Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[signal.second]->close);
-                addTrade(trade);
-                std::cout << type << " trade was opened." << " Entry price: " 
-                    << candles[signal.second]->close 
-                    << ". Share of balance: " << *balance * shareOfBalance / 100 
-                << std::endl;
-
-                // set a new stop loss
-                FixedStopLoss* fixedStopLoss = new FixedStopLoss(maxStopLoss);
-                fixedStopLoss->setPrice(trade, candles[index]->close);
-                addStopLoss(fixedStopLoss);
-
-                fixedStopLoss->checkExit(trade, index, candles);
-                trade->calculatePL(balance);
-                
-                if (*balance > 0) {
-                    std::cout << type << " trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
-                } else {
-                    std::cout << type << " trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
-                }
-                std::cout << "Current Balance: " << *balance << "\n" << std::endl;
-                trade->recalculateBalance(balance);
+            if (*balance <= minTradeAmount) break;
+            else if (confirmed) {
+                executeTrade(
+                    candles, type, index, balance, 
+                    shareOfBalance, maxStopLoss
+                );
             }
 
             resetTriggerStatus(indicators, indicatorTriggerStatus);
@@ -180,6 +215,32 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
         // the trade signals
         break;
     }
+}
+
+void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
+    if (*balance <= minTradeAmount) {
+        std::cout << "Balance is less than minimum trade amount. You cannot make trades" << std::endl;
+        return;
+    }
+
+    // 1. Get all user inputs
+    double maxStopLoss, trailingStopLoss, shareOfBalance;
+    getUserInputs(maxStopLoss, trailingStopLoss, shareOfBalance);
+
+    // 2. Prepare indicators and intersection signals
+    std::unordered_map<std::string, bool> indicatorTriggerStatus;
+    std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>> intersections;
+
+    prepareIndicators(indicators, candles, indicatorTriggerStatus, intersections);
+
+    // 3. Sort intersections in ascending order based on number of intersections
+    ascendingSortIntersections(intersections);
+
+    // 4. Process signals and run trades
+    processTradeSignals(
+        candles, indicators, intersections, indicatorTriggerStatus,
+        balance, shareOfBalance, maxStopLoss
+    );
 
     std::cout << "Number of trades: " << trades.size() << std::endl;
 }

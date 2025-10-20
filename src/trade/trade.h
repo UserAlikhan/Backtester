@@ -23,7 +23,6 @@ class Trade {
         double calculateLiquidationPrice(double *currentBalance);
         void closeTrade(double closePrice);
         void calculatePL(double* currentBalance);
-        void recalculateBalance(double* currentBalance);
 };
 
 // class Trade {
