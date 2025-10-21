@@ -91,5 +91,7 @@ void TestSetup::initializeBacktester() {
     std::cout << std::endl;
 
     Backtester* backtester = new Backtester();
-    backtester->run(candles, indicators, &balance);
+    backtester->run(candles, indicators, balance);
+
+    std::cout << "Final balance: " << balance;
 }

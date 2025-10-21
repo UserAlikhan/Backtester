@@ -55,7 +55,7 @@ class Backtester {
             std::vector<Indicator*>& indicators,
             const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
             std::unordered_map<std::string, bool>& indicatorTriggerStatus,
-            double* balance,
+            double& balance,
             double& shareOfBalance,
             double& maxStopLoss,
             double& takeProfit,
@@ -77,7 +77,7 @@ class Backtester {
             std::vector<Candle*>& candles,
             TradeType& type,
             int& index,
-            double* balance,
+            double& balance,
             double& shareOfBalance,
             double& maxStopLoss,
             double& takeProfit,
@@ -94,5 +94,5 @@ class Backtester {
         );
 
         // run backtest
-        void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance);
+        void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double& balance);
 };

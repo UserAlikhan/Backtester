@@ -3236,6 +3236,8 @@ CMakeFiles/backtester.dir/src/indicators/ema.cpp.o: /Users/alikhanataniyazov/Pro
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h
 
+CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/rsi.cpp
+
 CMakeFiles/backtester.dir/src/indicators/sma.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/Availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h \
@@ -9654,6 +9656,8 @@ CMakeFiles/backtester.dir/src/trade/trade.cpp.o: /Users/alikhanataniyazov/Projec
 /Users/alikhanataniyazov/Projects/BackTester/src/main.cpp:
 
 /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp:
+
+/Users/alikhanataniyazov/Projects/BackTester/src/indicators/rsi.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream:
 

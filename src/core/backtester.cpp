@@ -160,29 +160,29 @@ void Backtester::executeTrade(
     std::vector<Candle*>& candles,
     TradeType& type,
     int& index,
-    double* balance,
+    double& balance,
     double& shareOfBalance,
     double& maxStopLoss,
     double& takeProfit,
     double& trailingStopLoss
 ) {
     // open a new trade
-    Trade* trade = new Trade(type, *balance * shareOfBalance / 100, candles[index]->close);
+    Trade* trade = new Trade(type, balance * shareOfBalance / 100, candles[index]->close);
     addTrade(trade);
     std::cout << type << " index: " << index << " trade was opened." << " Entry price: " 
         << trade->getEntryPrice()
-        << ". Share of balance: " << *balance * shareOfBalance / 100 
+        << ". Share of balance: " << balance * shareOfBalance / 100 
         << std::endl;
 
     checkAllCloseOrders(candles, trade, index, maxStopLoss, takeProfit, trailingStopLoss);
     trade->calculatePL(balance);
 
-    if (*balance > 0) {
+    if (balance > 0) {
         std::cout << type << " Trade was closed at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
     } else {
         std::cout << type << " Trade liquidated at " << trade->getClosePrice() << ". Profit: " << trade->getPL() << std::endl;
     }
-    std::cout << "Current Balance: " << *balance << "\n" << std::endl;
+    std::cout << "Current Balance: " << balance << "\n" << std::endl;
 }
 
 void Backtester::processTradeSignals(
@@ -190,7 +190,7 @@ void Backtester::processTradeSignals(
     std::vector<Indicator*>& indicators,
     const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
-    double* balance,
+    double& balance,
     double& shareOfBalance,
     double& maxStopLoss,
     double& takeProfit,
@@ -218,7 +218,7 @@ void Backtester::processTradeSignals(
             );
 
             // if balance gets to 0 no further trades available
-            if (*balance <= minTradeAmount) break;
+            if (balance <= minTradeAmount) break;
             else if (confirmed) {
                 executeTrade(
                     candles, type, index, balance, 
@@ -291,8 +291,8 @@ void Backtester::checkAllCloseOrders(
     }
 }
 
-void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double* balance) {
-    if (*balance <= minTradeAmount) {
+void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double& balance) {
+    if (balance <= minTradeAmount) {
         std::cout << "Balance is less than minimum trade amount. You cannot make trades" << std::endl;
         return;
     }

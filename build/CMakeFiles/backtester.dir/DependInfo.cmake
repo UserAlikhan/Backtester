@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp" "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o.d"
+  "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/rsi.cpp" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/main.cpp" "CMakeFiles/backtester.dir/src/main.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/main.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o.d"

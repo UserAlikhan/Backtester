@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o.d"
   "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o"
   "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o.d"
+  "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o"
+  "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o.d"
   "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o"
   "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o.d"
   "CMakeFiles/backtester.dir/src/main.cpp.o"

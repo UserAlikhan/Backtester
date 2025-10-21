@@ -225,6 +225,30 @@ src/indicators/ema.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/ema.cpp.s
 .PHONY : src/indicators/ema.cpp.s
 
+src/indicators/rsi.o: src/indicators/rsi.cpp.o
+.PHONY : src/indicators/rsi.o
+
+# target to build an object file
+src/indicators/rsi.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o
+.PHONY : src/indicators/rsi.cpp.o
+
+src/indicators/rsi.i: src/indicators/rsi.cpp.i
+.PHONY : src/indicators/rsi.i
+
+# target to preprocess a source file
+src/indicators/rsi.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/rsi.cpp.i
+.PHONY : src/indicators/rsi.cpp.i
+
+src/indicators/rsi.s: src/indicators/rsi.cpp.s
+.PHONY : src/indicators/rsi.s
+
+# target to generate assembly for a file
+src/indicators/rsi.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/rsi.cpp.s
+.PHONY : src/indicators/rsi.cpp.s
+
 src/indicators/sma.o: src/indicators/sma.cpp.o
 .PHONY : src/indicators/sma.o
 
@@ -438,6 +462,9 @@ help:
 	@echo "... src/indicators/ema.o"
 	@echo "... src/indicators/ema.i"
 	@echo "... src/indicators/ema.s"
+	@echo "... src/indicators/rsi.o"
+	@echo "... src/indicators/rsi.i"
+	@echo "... src/indicators/rsi.s"
 	@echo "... src/indicators/sma.o"
 	@echo "... src/indicators/sma.i"
 	@echo "... src/indicators/sma.s"
