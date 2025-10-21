@@ -1,5 +1,5 @@
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp \
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.o: \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \

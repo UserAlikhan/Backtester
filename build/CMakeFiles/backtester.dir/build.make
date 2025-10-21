@@ -114,33 +114,33 @@ CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp -o CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s
 
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/backtester.dir/src/indicators/ema.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/ema.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/ema.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/ema.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp
 
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp > CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/ema.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp > CMakeFiles/backtester.dir/src/indicators/ema.cpp.i
 
-CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/EMA.cpp -o CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s
+CMakeFiles/backtester.dir/src/indicators/ema.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/ema.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp -o CMakeFiles/backtester.dir/src/indicators/ema.cpp.s
 
-CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp
-CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp
+CMakeFiles/backtester.dir/src/indicators/sma.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/indicators/sma.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp
+CMakeFiles/backtester.dir/src/indicators/sma.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/backtester.dir/src/indicators/sma.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/indicators/sma.cpp.o -MF CMakeFiles/backtester.dir/src/indicators/sma.cpp.o.d -o CMakeFiles/backtester.dir/src/indicators/sma.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp
 
-CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp > CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i
+CMakeFiles/backtester.dir/src/indicators/sma.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/indicators/sma.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp > CMakeFiles/backtester.dir/src/indicators/sma.cpp.i
 
-CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/simple_moving_average.cpp -o CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s
+CMakeFiles/backtester.dir/src/indicators/sma.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/indicators/sma.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp -o CMakeFiles/backtester.dir/src/indicators/sma.cpp.s
 
 CMakeFiles/backtester.dir/src/main.cpp.o: CMakeFiles/backtester.dir/flags.make
 CMakeFiles/backtester.dir/src/main.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/main.cpp
@@ -245,8 +245,8 @@ backtester_OBJECTS = \
 "CMakeFiles/backtester.dir/src/core/backtester.cpp.o" \
 "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o" \
 "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o" \
-"CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o" \
-"CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o" \
+"CMakeFiles/backtester.dir/src/indicators/ema.cpp.o" \
+"CMakeFiles/backtester.dir/src/indicators/sma.cpp.o" \
 "CMakeFiles/backtester.dir/src/main.cpp.o" \
 "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" \
 "CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o" \
@@ -261,8 +261,8 @@ backtester_EXTERNAL_OBJECTS =
 backtester: CMakeFiles/backtester.dir/src/core/backtester.cpp.o
 backtester: CMakeFiles/backtester.dir/src/core/testSetup.cpp.o
 backtester: CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o
-backtester: CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o
-backtester: CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o
+backtester: CMakeFiles/backtester.dir/src/indicators/ema.cpp.o
+backtester: CMakeFiles/backtester.dir/src/indicators/sma.cpp.o
 backtester: CMakeFiles/backtester.dir/src/main.cpp.o
 backtester: CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o
 backtester: CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o

@@ -201,53 +201,53 @@ src/data/csvLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/data/csvLoader.cpp.s
 .PHONY : src/data/csvLoader.cpp.s
 
-src/indicators/EMA.o: src/indicators/EMA.cpp.o
-.PHONY : src/indicators/EMA.o
+src/indicators/ema.o: src/indicators/ema.cpp.o
+.PHONY : src/indicators/ema.o
 
 # target to build an object file
-src/indicators/EMA.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o
-.PHONY : src/indicators/EMA.cpp.o
+src/indicators/ema.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/ema.cpp.o
+.PHONY : src/indicators/ema.cpp.o
 
-src/indicators/EMA.i: src/indicators/EMA.cpp.i
-.PHONY : src/indicators/EMA.i
+src/indicators/ema.i: src/indicators/ema.cpp.i
+.PHONY : src/indicators/ema.i
 
 # target to preprocess a source file
-src/indicators/EMA.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.i
-.PHONY : src/indicators/EMA.cpp.i
+src/indicators/ema.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/ema.cpp.i
+.PHONY : src/indicators/ema.cpp.i
 
-src/indicators/EMA.s: src/indicators/EMA.cpp.s
-.PHONY : src/indicators/EMA.s
+src/indicators/ema.s: src/indicators/ema.cpp.s
+.PHONY : src/indicators/ema.s
 
 # target to generate assembly for a file
-src/indicators/EMA.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/EMA.cpp.s
-.PHONY : src/indicators/EMA.cpp.s
+src/indicators/ema.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/ema.cpp.s
+.PHONY : src/indicators/ema.cpp.s
 
-src/indicators/simple_moving_average.o: src/indicators/simple_moving_average.cpp.o
-.PHONY : src/indicators/simple_moving_average.o
+src/indicators/sma.o: src/indicators/sma.cpp.o
+.PHONY : src/indicators/sma.o
 
 # target to build an object file
-src/indicators/simple_moving_average.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.o
-.PHONY : src/indicators/simple_moving_average.cpp.o
+src/indicators/sma.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/sma.cpp.o
+.PHONY : src/indicators/sma.cpp.o
 
-src/indicators/simple_moving_average.i: src/indicators/simple_moving_average.cpp.i
-.PHONY : src/indicators/simple_moving_average.i
+src/indicators/sma.i: src/indicators/sma.cpp.i
+.PHONY : src/indicators/sma.i
 
 # target to preprocess a source file
-src/indicators/simple_moving_average.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.i
-.PHONY : src/indicators/simple_moving_average.cpp.i
+src/indicators/sma.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/sma.cpp.i
+.PHONY : src/indicators/sma.cpp.i
 
-src/indicators/simple_moving_average.s: src/indicators/simple_moving_average.cpp.s
-.PHONY : src/indicators/simple_moving_average.s
+src/indicators/sma.s: src/indicators/sma.cpp.s
+.PHONY : src/indicators/sma.s
 
 # target to generate assembly for a file
-src/indicators/simple_moving_average.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/simple_moving_average.cpp.s
-.PHONY : src/indicators/simple_moving_average.cpp.s
+src/indicators/sma.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/indicators/sma.cpp.s
+.PHONY : src/indicators/sma.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -435,12 +435,12 @@ help:
 	@echo "... src/data/csvLoader.o"
 	@echo "... src/data/csvLoader.i"
 	@echo "... src/data/csvLoader.s"
-	@echo "... src/indicators/EMA.o"
-	@echo "... src/indicators/EMA.i"
-	@echo "... src/indicators/EMA.s"
-	@echo "... src/indicators/simple_moving_average.o"
-	@echo "... src/indicators/simple_moving_average.i"
-	@echo "... src/indicators/simple_moving_average.s"
+	@echo "... src/indicators/ema.o"
+	@echo "... src/indicators/ema.i"
+	@echo "... src/indicators/ema.s"
+	@echo "... src/indicators/sma.o"
+	@echo "... src/indicators/sma.i"
+	@echo "... src/indicators/sma.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

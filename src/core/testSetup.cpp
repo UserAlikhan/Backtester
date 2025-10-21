@@ -61,7 +61,7 @@ void TestSetup::addIndicator() {
             std::cout << "Chose period for second moving average: " << std::endl;
             std::cin >> per2;
 
-            EMA* ema = new EMA("Simple moving average", per1, per2);
+            SMA* ema = new SMA("Simple moving average", per1, per2);
             indicators.push_back(ema);
 
             std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
