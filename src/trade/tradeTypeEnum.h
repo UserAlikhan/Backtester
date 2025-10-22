@@ -3,4 +3,5 @@
 enum TradeType {
     LONG,
     SHORT,
+    NONE,
 };

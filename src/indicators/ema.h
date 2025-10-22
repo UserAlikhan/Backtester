@@ -16,14 +16,17 @@ class EMA : public Indicator, public IntersectionIndicator {
         EMA(std::string name, int p1, int p2);
 
         std::vector<double>& getDataPeriod1() { return dataPeriod1;}
+
         void addIntoPeriod1Dataset(double price);
         
         std::vector<double>& getDataPeriod2() { return dataPeriod2;}
+
         void addIntoPeriod2Dataset(double price);
 
         std::pair<double, double> calculateSmoothingFactor();
+
         void calculate(std::vector<Candle*>& candles) override;
 
         // returns intersection type and intersection index from data
-        std::vector<std::pair<TradeType, int>> findIntersections() override;
+        std::vector<std::pair<TradeType, int>>& findIntersections() override;
 };

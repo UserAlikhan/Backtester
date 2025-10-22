@@ -48,7 +48,7 @@ void TestSetup::addIndicator() {
     std::string strategy;
 
     while (true) {
-        std::cout << "Type indicator names (SMA) and type stop after you are done: " << std::endl;
+        std::cout << "Type indicator names to select (type stop after you are done): " << std::endl;
         std::cin >> strategy;
 
         if (strategy == "stop") break;
@@ -77,6 +77,29 @@ void TestSetup::addIndicator() {
             indicators.push_back(ema);
 
             std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
+        } else if (strategy == "RSI") {
+            double period;
+            std::string strategy;
+
+            std::cout << "Chose period for RSI: " << std::endl;
+            std::cin >> period;
+
+            std::cout << "Chose strategy for RSI: " << std::endl;
+            std::cin >> strategy;
+            
+            RSI* rsi = nullptr;
+            
+            if (strategy == "extreme values") {
+                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::EXTREME_VALUES);
+            } else if (strategy == "trend confirmation") {
+                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::TREND_CONFIRMATION);
+            } else if (strategy == "divergence") {
+                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::DIVERGENCE);
+            }
+
+            indicators.push_back(rsi);
+
+            std::cout << "Indicator "<< rsi->getName() << " was added successfully!" << std::endl;
         }
     }
 }

@@ -6,5 +6,5 @@
 class IntersectionIndicator {
     public:
         virtual ~IntersectionIndicator() = default;
-        virtual std::vector<std::pair<TradeType, int>> findIntersections() = 0;
+        virtual std::vector<std::pair<TradeType, int>>& findIntersections() = 0;
 };

@@ -6,6 +6,7 @@
 #include "indicator.h"
 #include "ema.h"
 #include "sma.h"
+#include "rsi.h"
 #include "backtester.h"
 
 class TestSetup {
