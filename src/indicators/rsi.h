@@ -18,13 +18,13 @@
 // the MACD helps confirm trend reversals as the two measure momentum differently
 #pragma once
 #include "indicator.h"
-#include "oscilator.h"
+#include "oscilatorIndicator.h"
 #include "oscilatorStrategyTypesEnum.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
-class RSI : public Indicator, public Oscilator {
+class RSI : public Indicator, public OscilatorIndicator {
     private:
         int period;
         double overboughtLevel;
@@ -36,9 +36,11 @@ class RSI : public Indicator, public Oscilator {
 
         std::vector<double>& getValues();
 
-        void calculate(std::vector<Candle*>& candles);
+        // from Indicator
+        void calculate(std::vector<Candle*>& candles) override;
 
-        std::vector<std::pair<TradeType, int>>& checkExtremes() override;
-        std::vector<std::pair<TradeType, int>>& confirmTrend() override;
-        std::vector<std::pair<TradeType, int>>& detectDivergence() override;
+        // from OscilatorIndicator
+        std::vector<std::pair<TradeType, int>> checkExtremes() override;
+        std::vector<std::pair<TradeType, int>> confirmTrend() override;
+        std::vector<std::pair<TradeType, int>> detectDivergence() override;
 };

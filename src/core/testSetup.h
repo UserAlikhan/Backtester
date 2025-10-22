@@ -8,6 +8,7 @@
 #include "sma.h"
 #include "rsi.h"
 #include "backtester.h"
+#include "oscilatorStrategyTypesEnum.h"
 
 class TestSetup {
     private:

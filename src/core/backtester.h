@@ -9,6 +9,8 @@
 #include "indicator.h"
 #include "intersectionEnum.h"
 #include "intersectionIndicator.h"
+#include "oscilatorIndicator.h"
+#include "oscilatorStrategyTypesEnum.h"
 
 class Backtester {
     private:

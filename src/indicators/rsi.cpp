@@ -3,16 +3,16 @@
 #include <string>
 
 RSI::RSI(std::string name, OscilatorStrategyTypes strategy, int period, double overboughtLevel, double oversoldLevel)
-    : Indicator(name), Oscilator(strategy), period(period),
+    : Indicator(name), OscilatorIndicator(strategy), period(period),
     overboughtLevel(overboughtLevel), oversoldLevel(oversoldLevel) {}
 
 double calculateAverage(std::vector<double> data, int dataPeriod) {
-    double sum = 0.0;
-    int counter = 0;
+    if (data.size() < static_cast<size_t>(dataPeriod)) return 0.0;
 
-    while (counter < dataPeriod) {
-        sum += data[dataPeriod];
-        counter++;
+    double sum = 0.0;
+    
+    for (size_t i = data.size() - dataPeriod; i < data.size(); ++i) {
+        sum += data[i];
     }
 
     return sum / dataPeriod;
@@ -23,7 +23,7 @@ std::vector<double>& RSI::getValues() {
 }
 
 void RSI::calculate(std::vector<Candle*>& candles) {
-    if (candles.size() < period) {
+    if ((int)candles.size() < period) {
         std::cout << "No data provided or it is smaller than specified periods" << std::endl;
         return;
     }
@@ -38,7 +38,7 @@ void RSI::calculate(std::vector<Candle*>& candles) {
     for (size_t i = 1; i < candles.size(); ++i) {
         double change = candles[i]->close - candles[i - 1]->close;
         gains.push_back(change > 0 ? change : 0);
-        losses.push_back(change < 0 ? change : 0);
+        losses.push_back(change < 0 ? -change : 0);
     }
 
     double avgGain = calculateAverage(gains, period);
@@ -54,20 +54,44 @@ void RSI::calculate(std::vector<Candle*>& candles) {
         avgGain = (avgGain * (period - 1) + gains[i - 1]) / period;
         avgLoss = (avgLoss * (period - 1) + losses[i - 1]) / period;
 
-        RS = (avgLoss = 0) ? 0 : avgGain / avgLoss;
+        RS = (avgLoss == 0) ? 0 : avgGain / avgLoss;
         values[i] = 100.0 - (100.0 / (1.0 + RS));
     }
 }
 
-std::vector<std::pair<TradeType, int>>& RSI::checkExtremes() {
-    std::vector<std::pair<TradeType, int>> extremeValues;
+std::vector<std::pair<TradeType, int>> RSI::checkExtremes() {
+    std::vector<std::pair<TradeType, int>> tradeSignals;
+    tradeSignals.reserve(values.size());
 
-    for (int i = 0; i < values.size(); ++i) {
+    for (size_t i = 0; i < values.size(); ++i) {
+        // skip first period trades, because they are 0.0 
+        // and were used for initialization
+        if (i < static_cast<size_t>(period)) {
+            tradeSignals.push_back({TradeType::NONE, i});
+            continue;
+        }
+
         double& value = values[i];
-        if (value > 70) extremeValues.push_back({TradeType::SHORT, i});
-        else if (value < 30) extremeValues.push_back({TradeType::LONG, i});
-        else extremeValues.push_back({TradeType::NONE, i});
+        if (value > overboughtLevel) tradeSignals.push_back({TradeType::SHORT, i});
+        else if (value < oversoldLevel) {
+            tradeSignals.push_back({TradeType::LONG, i});
+        }
+        else tradeSignals.push_back({TradeType::NONE, i});
     }
 
-    return extremeValues;
+    return tradeSignals;
+}
+
+std::vector<std::pair<TradeType, int>> RSI::confirmTrend() {
+    std::vector<std::pair<TradeType, int>> tradeSignals;
+    tradeSignals.reserve(values.size());
+
+    return tradeSignals;
+}
+
+std::vector<std::pair<TradeType, int>> RSI::detectDivergence() {
+    std::vector<std::pair<TradeType, int>> tradeSignals;
+    tradeSignals.reserve(values.size());
+    
+    return tradeSignals;
 }

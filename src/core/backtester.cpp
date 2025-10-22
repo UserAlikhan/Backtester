@@ -106,40 +106,52 @@ void Backtester::prepareIndicators(
     std::vector<Indicator*>& indicators,
     std::vector<Candle*>& candles,
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
-    std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections
+    std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& tradeSignals
 ) {
     for (auto indicator: indicators) {
         indicator->calculate(candles);
         // fill hashmap with indicator name
         indicatorTriggerStatus[indicator->getName()] = false;
 
+        // add intersection trade signals
         if (IntersectionIndicator* inter = dynamic_cast<IntersectionIndicator*>(indicator)) {
-            // save each indicator's intesections (trade entry points)
-            intersections.push_back({indicator->getName(), inter->findIntersections()});
+            tradeSignals.push_back({indicator->getName(), inter->findIntersections()});
+        // add osicalator trade signals
+        } else if (OscilatorIndicator * oscilator = dynamic_cast<OscilatorIndicator*>(indicator)) {
+            if (oscilator->getStrategy() == OscilatorStrategyTypes::EXTREME_VALUES) {
+                tradeSignals.push_back({indicator->getName(), oscilator->checkExtremes()});
+            } else if (oscilator->getStrategy() == OscilatorStrategyTypes::TREND_CONFIRMATION) {
+                tradeSignals.push_back({indicator->getName(), oscilator->confirmTrend()});
+            } else if (oscilator->getStrategy() == OscilatorStrategyTypes::DIVERGENCE) {
+                tradeSignals.push_back({indicator->getName(), oscilator->detectDivergence()});
+            }
         }
     }
 }
 
 bool Backtester::confirmSignalAcrossIndicators(
     std::vector<Indicator*>& indicators,
-    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
+    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& tradeSignals,
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
     const std::string& mainIndicator,
     TradeType& type,
     int& index
 ) {
     // run over indicators and check if there are trade signal matches with LEADING INDICATOR
-    for (const auto& otherPair: intersections) {
+    for (const auto& otherPair: tradeSignals) {
         const std::string& otherIndicatorName = otherPair.first;
         const auto& otherIndicatorSignals = otherPair.second;
        
-        // skip main indicator   
+        // skip main indicator
         if (otherIndicatorName == mainIndicator) continue;
 
         for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
             // checks price index to be the same and trade type to be the same
-            if (otherIndicatorSignal.second == index && otherIndicatorSignal.first == type) {
-                indicatorTriggerStatus[otherPair.first] = true;
+            if (
+                otherIndicatorSignal.second == index && 
+                (otherIndicatorSignal.first == type || otherIndicatorSignal.first == TradeType::NONE)
+            ){
+                indicatorTriggerStatus[otherIndicatorName] = true;
                 break;
             }
         }
@@ -188,7 +200,7 @@ void Backtester::executeTrade(
 void Backtester::processTradeSignals(
     std::vector<Candle*>& candles,
     std::vector<Indicator*>& indicators,
-    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
+    const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& tradeSignals,
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
     double& balance,
     double& shareOfBalance,
@@ -197,7 +209,7 @@ void Backtester::processTradeSignals(
     double& trailingStopLoss
 ) {
     // iterate over intersections 
-    for (const auto& pair : intersections) {
+    for (const auto& pair : tradeSignals) {
         const std::string& indicatorName = pair.first;
         const auto& indicatorSignals = pair.second;
 
@@ -206,6 +218,9 @@ void Backtester::processTradeSignals(
     
         // iterate over MAIN trade's signals
         for (const auto& signal : indicatorSignals) {
+            // if status in NONE skip the trade
+            if (signal.first == TradeType::NONE) continue;
+
             indicatorTriggerStatus[indicatorName] = true;
 
             TradeType type = signal.first;
@@ -213,7 +228,7 @@ void Backtester::processTradeSignals(
 
             // confirm intersection with other indicators
             bool confirmed = confirmSignalAcrossIndicators(
-                indicators, intersections, indicatorTriggerStatus, 
+                indicators, tradeSignals, indicatorTriggerStatus, 
                 indicatorName, type, index
             );
 
@@ -262,7 +277,6 @@ void Backtester::checkAllCloseOrders(
         tsl = new TrailingStopLoss(trailingStopLoss);
         tsl->setPrice(trade, candles[index]->close);
     }
-    // TODO: take profit case
 
     for (size_t i = index; i < candles.size(); i++) {
         if (trade->getClosePrice() != 0.0) break;
@@ -298,7 +312,8 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
     }
 
     // 1. Get all user inputs
-    double maxStopLoss, trailingStopLoss, takeProfit, shareOfBalance;
+    double maxStopLoss = 0.0, trailingStopLoss = 0.0, 
+        takeProfit = 0.0, shareOfBalance = 0.0;
     getUserInputs(maxStopLoss, trailingStopLoss, takeProfit, shareOfBalance);
 
     // 2. Prepare indicators and intersection signals

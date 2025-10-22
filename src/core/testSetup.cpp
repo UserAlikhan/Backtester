@@ -79,22 +79,27 @@ void TestSetup::addIndicator() {
             std::cout << "Indicator "<< ema->getName() << " was added successfully!" << std::endl;
         } else if (strategy == "RSI") {
             double period;
-            std::string strategy;
+            std::string rsiStrategy;
 
             std::cout << "Chose period for RSI: " << std::endl;
             std::cin >> period;
 
             std::cout << "Chose strategy for RSI: " << std::endl;
-            std::cin >> strategy;
+            std::cin >> rsiStrategy;
             
             RSI* rsi = nullptr;
             
-            if (strategy == "extreme values") {
-                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::EXTREME_VALUES);
-            } else if (strategy == "trend confirmation") {
-                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::TREND_CONFIRMATION);
-            } else if (strategy == "divergence") {
-                rsi = new RSI("Relative Strength Index", period, RSIStrategyTypes::DIVERGENCE);
+            if (rsiStrategy == "extreme" || rsiStrategy == "extreme values") {
+                rsi = new RSI("Relative Strength Index", OscilatorStrategyTypes::EXTREME_VALUES, period);
+            } else if (rsiStrategy == "trend" || rsiStrategy == "trend confirmation") {
+                rsi = new RSI("Relative Strength Index", OscilatorStrategyTypes::TREND_CONFIRMATION, period);
+            } else if (rsiStrategy == "divergence") {
+                rsi = new RSI("Relative Strength Index", OscilatorStrategyTypes::DIVERGENCE, period);
+            }
+
+            if (!rsi) {
+                std::cout << "❌ Invalid RSI strategy entered!" << std::endl;
+                return;
             }
 
             indicators.push_back(rsi);

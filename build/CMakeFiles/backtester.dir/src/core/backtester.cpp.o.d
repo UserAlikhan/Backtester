@@ -803,4 +803,6 @@ CMakeFiles/backtester.dir/src/core/backtester.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/indicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorIndicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorStrategyTypesEnum.h

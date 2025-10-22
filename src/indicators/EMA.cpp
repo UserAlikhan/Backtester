@@ -66,7 +66,7 @@ void EMA::calculate(std::vector<Candle*>& candles) {
         << std::endl;
 }
 
-std::vector<std::pair<TradeType, int>>& EMA::findIntersections() {
+std::vector<std::pair<TradeType, int>> EMA::findIntersections() {
     std::vector<std::pair<TradeType, int>> result;
     // does not matter if we iterate over dataPeriod1 or dataPeriod2
     for (size_t i = 1; i < dataPeriod1.size(); i++) {

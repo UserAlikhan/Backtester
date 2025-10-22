@@ -802,6 +802,9 @@ CMakeFiles/backtester.dir/src/main.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/tradeTypeEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/rsi.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorIndicator.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorStrategyTypesEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.h \

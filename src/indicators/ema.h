@@ -28,5 +28,5 @@ class EMA : public Indicator, public IntersectionIndicator {
         void calculate(std::vector<Candle*>& candles) override;
 
         // returns intersection type and intersection index from data
-        std::vector<std::pair<TradeType, int>>& findIntersections() override;
+        std::vector<std::pair<TradeType, int>> findIntersections() override;
 };
