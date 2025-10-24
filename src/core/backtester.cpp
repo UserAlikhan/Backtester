@@ -211,8 +211,10 @@ void Backtester::executeTrade(
 ) {
     // open a new trade
     double amountOfMoneyInvest = (balance * shareOfBalance / 100) / candles[index]->close;
+    
     Trade* trade = new Trade(type, amountOfMoneyInvest, candles[index]->close);
     addTrade(trade);
+
     std::cout << type << " index: " << index << " trade was opened." << " Entry price: " 
         << trade->getEntryPrice()
         << ". Share of balance: " << balance * shareOfBalance / 100 

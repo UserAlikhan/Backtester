@@ -12,7 +12,7 @@ class SwingStrategy : public TrendStrategy {
         // constructor
         SwingStrategy(int lookback);
         
-        std::vector<TrendType> detect(const std::vector<Candle*>& candles) override;
+        std::vector<double>& detect(const std::vector<Candle*>& candles) override;
 
-        static double sumSwings(std::vector<double>& swings);  
+        static double averageSum(std::vector<double>& swings);  
 };

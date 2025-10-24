@@ -14,5 +14,5 @@ class MovingAverageStrategy : public TrendStrategy {
         // constructor
         MovingAverageStrategy(int period);
         
-        std::vector<TrendType> detect(const std::vector<Candle*>& candles) override;
+        std::vector<double>& detect(const std::vector<Candle*>& candles) override;
 };

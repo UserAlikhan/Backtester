@@ -20,6 +20,9 @@ Ways to detect trend:
 
 // Trend detection is really important, since will be used in Swing / Trend Trading type strategies
 class TrendStrategy {
+    protected:
+        std::vector<double> strategyData;
     public:
-        virtual std::vector<TrendType> detect(const std::vector<Candle*>& candles) = 0;
+        virtual ~TrendStrategy() = default;
+        virtual std::vector<double>& detect(const std::vector<Candle*>& candles) = 0;
 };

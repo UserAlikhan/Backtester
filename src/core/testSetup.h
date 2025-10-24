@@ -12,6 +12,9 @@
 #include "trendStrategy.h"
 #include "movingAverageStrategy.h"
 #include "trendTypeEnum.h"
+#include "swingStrategy.h"
+#include "weightedStrategyStruct.h"
+#include "trendEnsemble.h"
 
 class TestSetup {
     private:
@@ -28,12 +31,12 @@ class TestSetup {
         void setCandles();
 
         double getBalance() { return balance; }
-
-        void identifyTrend();
         
         void setBalance();
         
         void addIndicator();
+
+        void identifyTrend();
 
         void initializeBacktester();
 };

@@ -1,6 +1,7 @@
 #include "testSetup.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 // constructor
 TestSetup::TestSetup() {}
@@ -34,12 +35,6 @@ void TestSetup::setCandles() {
     candles = candlesData;
 
     std::cout << "Data was uploaded successfully" << std::endl;
-}
-
-void TestSetup::identifyTrend() {
-    MovingAverageStrategy movingAverageStrategy(200);
-    trendDirections = movingAverageStrategy.detect(candles);
-    std::cout << "trendDirections size: " << trendDirections.size() << " Candles size: " << candles.size() << std::endl;
 }
 
 void TestSetup::setBalance() {
@@ -115,6 +110,47 @@ void TestSetup::addIndicator() {
             std::cout << "Indicator "<< rsi->getName() << " was added successfully!" << std::endl;
         }
     }
+}
+
+void TestSetup::identifyTrend() {
+    std::string trendOption;
+    double decisionWeight = 0.0, threshold = 0.4;
+
+    std::cout << "Enter a threshold for trend detection: " << std::endl;
+    std::cin >> threshold;
+
+    // initialize
+    TrendStrategy* strategy = nullptr;
+    TrendEnsemble trendEnsemble(threshold);
+
+    while (true) {
+        std::cout << "Choose the way you want to identify trend (type stop to terminate): " << std::endl;
+        std::cin >> trendOption;
+
+        if (trendOption == "stop" || trendOption == "") break;
+
+        std::cout << "Choose a decision weight for this strategy: " << std::endl;
+        std::cin >> decisionWeight;
+
+        if (trendOption == "Moving Average" || trendOption == "MA") {
+            strategy = new MovingAverageStrategy(200);
+        } else if (trendOption == "Swings") {
+            strategy = new SwingStrategy(1000);
+        }
+
+        // add a new strategy
+        trendEnsemble.addStrategy(strategy, decisionWeight);
+    }
+
+    // compute scroe and get trend directions
+    std::vector<double> scores = trendEnsemble.computeScore(candles);
+
+    for (auto s : scores) {
+        std::cout << s << " ";
+    }
+    std::cout << "\n";
+
+    trendDirections = trendEnsemble.getTrend(scores);
 }
 
 void TestSetup::initializeBacktester() {

@@ -813,4 +813,7 @@ CMakeFiles/backtester.dir/src/main.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendTypeEnum.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendStrategy.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/weightedStrategyStruct.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.h
