@@ -135,7 +135,7 @@ void TestSetup::identifyTrend() {
         if (trendOption == "Moving Average" || trendOption == "MA") {
             strategy = new MovingAverageStrategy(200);
         } else if (trendOption == "Swings") {
-            strategy = new SwingStrategy(1000);
+            strategy = new SwingStrategy(200);
         }
 
         // add a new strategy

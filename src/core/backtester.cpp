@@ -132,7 +132,7 @@ void Backtester::prepareIndicators(
         // add intersection trade signals
         if (IntersectionIndicator* inter = dynamic_cast<IntersectionIndicator*>(indicator)) {
             tradeSignals.push_back({indicator->getName(), inter->findIntersections()});
-        // add osicalator trade signals
+        // add osicalator to trade signals
         } else if (OscilatorIndicator * oscilator = dynamic_cast<OscilatorIndicator*>(indicator)) {
             if (oscilator->getStrategy() == OscilatorStrategyTypes::EXTREME_VALUES) {
                 tradeSignals.push_back({indicator->getName(), oscilator->checkExtremes()});
@@ -164,8 +164,8 @@ bool Backtester::confirmSignalAcrossIndicators(
         for (const auto& otherIndicatorSignal: otherIndicatorSignals) {
             // checks price index to be the same and trade type to be the same
             if (
-                otherIndicatorSignal.second == index && 
-                (otherIndicatorSignal.first == type || otherIndicatorSignal.first == TradeType::NONE)
+                otherIndicatorSignal.second == index &&
+                otherIndicatorSignal.first == type
             ){
                 indicatorTriggerStatus[otherIndicatorName] = true;
                 break;
@@ -211,7 +211,7 @@ void Backtester::executeTrade(
 ) {
     // open a new trade
     double amountOfMoneyInvest = (balance * shareOfBalance / 100) / candles[index]->close;
-    
+
     Trade* trade = new Trade(type, amountOfMoneyInvest, candles[index]->close);
     addTrade(trade);
 
