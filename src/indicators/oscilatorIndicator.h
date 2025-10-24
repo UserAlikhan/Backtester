@@ -7,6 +7,7 @@
 class OscilatorIndicator {
     private:
         OscilatorStrategyTypes strategy;
+        
     public:
         OscilatorIndicator(OscilatorStrategyTypes strategy) : strategy(strategy) {}
         virtual ~OscilatorIndicator() = default;

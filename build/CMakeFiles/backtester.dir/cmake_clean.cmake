@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o.d"
   "CMakeFiles/backtester.dir/src/trade/trade.cpp.o"
   "CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d"
+  "CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o"
+  "CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o.d"
   "backtester"
   "backtester.pdb"
 )

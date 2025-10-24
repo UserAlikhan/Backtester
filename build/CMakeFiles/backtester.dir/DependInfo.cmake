@@ -21,6 +21,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.cpp" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o.d"
   "/Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d"
+  "/Users/alikhanataniyazov/Projects/BackTester/src/trend/trendDetection.cpp" "CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

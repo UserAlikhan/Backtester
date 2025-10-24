@@ -82,6 +82,17 @@ std::vector<std::pair<TradeType, int>> RSI::checkExtremes() {
     return tradeSignals;
 }
 
+/*
+Filters trade with trend. Take only RSI oversold buys if the trend is up
+Take only RSI overbought if the trend is down.
+
+Ways to identify trend:
+ - Moving averages. Price above MA -> uptrend, below MA -> downtrend
+    MA slope positive -> uptrend, MA slope negative -> downtrend
+ - ADX (Average Directional Index) that measures trend strength
+    to confirm trend. [ADX > 25 -> strong trend, ADX < 20 -> weak trend / range]
+ - Analyze swings (Swing Trading strategies)
+*/
 std::vector<std::pair<TradeType, int>> RSI::confirmTrend() {
     std::vector<std::pair<TradeType, int>> tradeSignals;
     tradeSignals.reserve(values.size());

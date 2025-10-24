@@ -441,6 +441,30 @@ src/trade/trade.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade/trade.cpp.s
 .PHONY : src/trade/trade.cpp.s
 
+src/trend/trendDetection.o: src/trend/trendDetection.cpp.o
+.PHONY : src/trend/trendDetection.o
+
+# target to build an object file
+src/trend/trendDetection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o
+.PHONY : src/trend/trendDetection.cpp.o
+
+src/trend/trendDetection.i: src/trend/trendDetection.cpp.i
+.PHONY : src/trend/trendDetection.i
+
+# target to preprocess a source file
+src/trend/trendDetection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.i
+.PHONY : src/trend/trendDetection.cpp.i
+
+src/trend/trendDetection.s: src/trend/trendDetection.cpp.s
+.PHONY : src/trend/trendDetection.s
+
+# target to generate assembly for a file
+src/trend/trendDetection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.s
+.PHONY : src/trend/trendDetection.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -489,6 +513,9 @@ help:
 	@echo "... src/trade/trade.o"
 	@echo "... src/trade/trade.i"
 	@echo "... src/trade/trade.s"
+	@echo "... src/trend/trendDetection.o"
+	@echo "... src/trend/trendDetection.i"
+	@echo "... src/trend/trendDetection.s"
 .PHONY : help
 
 

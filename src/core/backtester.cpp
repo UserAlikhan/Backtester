@@ -2,6 +2,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <algorithm>
+#include <thread>
 
 const double minTradeAmount = 2.0;
 
@@ -108,8 +109,13 @@ void Backtester::prepareIndicators(
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
     std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& tradeSignals
 ) {
-    for (auto indicator: indicators) {
-        indicator->calculate(candles);
+    std::vector<std::thread> threads;
+
+    for (auto* indicator: indicators) {
+        // instantiate indicators on multiple threads
+        threads.emplace_back([indicator, &candles]() {
+            indicator->calculate(candles);
+        });
         // fill hashmap with indicator name
         indicatorTriggerStatus[indicator->getName()] = false;
 
@@ -125,6 +131,13 @@ void Backtester::prepareIndicators(
             } else if (oscilator->getStrategy() == OscilatorStrategyTypes::DIVERGENCE) {
                 tradeSignals.push_back({indicator->getName(), oscilator->detectDivergence()});
             }
+        }
+    }
+
+    // wait for all threads to finish
+    for (auto& t : threads) {
+        if (t.joinable()) {
+            t.join();
         }
     }
 }
