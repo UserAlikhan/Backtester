@@ -48,6 +48,29 @@ void SMA::calculate(std::vector<Candle*>& candles) {
         << std::endl;
 }
 
+std::vector<double> SMA::calculateForOnePeriod(const std::vector<Candle*>& candles, int period) {
+    std::vector<double> data;
+    if (candles.size() < static_cast<size_t>(period)) return data;
+
+    data.assign(candles.size(), 0.0);
+
+    double sum = 0.0;
+
+    // initial calculation
+    for (int i = 0; i < period; ++i) {
+        sum += candles[i]->close;
+    }
+    data[period - 1] = sum / period;
+
+    // calculate for all other data points
+    for (size_t i = period; i < candles.size(); ++i) {
+        sum += candles[i]->close - candles[i - period]->close;
+        data[i] = sum / period;
+    }
+    
+    return data;
+}
+
 std::vector<std::pair<TradeType, int>> SMA::findIntersections() {
     std::vector<std::pair<TradeType, int>> result;
     // does not matter if we iterate over dataPeriod1 or dataPeriod2

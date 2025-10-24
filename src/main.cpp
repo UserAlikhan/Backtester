@@ -10,6 +10,8 @@ int main() {
 
     testSetup.addIndicator();
 
+    testSetup.identifyTrend();
+
     testSetup.initializeBacktester();
 
     // if (strategy == "SMA") {

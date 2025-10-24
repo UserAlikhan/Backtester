@@ -29,7 +29,7 @@ void Trade::calculatePL(double& currentBalance) {
     switch(tradeType) {
         case LONG: {
             PL = transactionAmount * (closePrice - entryPrice);
-            PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100;
+            PLpercentage = ((closePrice - entryPrice) / entryPrice) * 100.0;
 
             if (PL <= -(currentBalance)) {
                 // check liquidation price if loss exceeds the balance
@@ -47,7 +47,7 @@ void Trade::calculatePL(double& currentBalance) {
         }
         case SHORT: {
             PL = transactionAmount * (entryPrice - closePrice);
-            PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100;
+            PLpercentage = ((entryPrice - closePrice) / entryPrice) * 100.0;
 
             // check liquidation price if loss exceeds the balance
             if (PL < -(currentBalance)) {

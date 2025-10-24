@@ -12,8 +12,9 @@ include_directories(
     src/data
     src/indicators
     src/statistics
-    src/trade
     src/stopLoss
+    src/trade
+    src/trend
 )
 
 file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")

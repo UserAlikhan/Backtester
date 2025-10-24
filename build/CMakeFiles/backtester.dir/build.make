@@ -254,19 +254,47 @@ CMakeFiles/backtester.dir/src/trade/trade.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trade/trade.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp -o CMakeFiles/backtester.dir/src/trade/trade.cpp.s
 
-CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o: CMakeFiles/backtester.dir/flags.make
-CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendDetection.cpp
-CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o -MF CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o.d -o CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendDetection.cpp
+CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.cpp
+CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o -MF CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o.d -o CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.cpp
 
-CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendDetection.cpp > CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.i
+CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.cpp > CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.i
 
-CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendDetection.cpp -o CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.s
+CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.cpp -o CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.s
+
+CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.cpp
+CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o -MF CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o.d -o CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.cpp
+
+CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.cpp > CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.i
+
+CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.cpp -o CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.s
+
+CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o: CMakeFiles/backtester.dir/flags.make
+CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o: /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.cpp
+CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o: CMakeFiles/backtester.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o -MF CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o.d -o CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o -c /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.cpp
+
+CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.cpp > CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.i
+
+CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.cpp -o CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.s
 
 # Object files for target backtester
 backtester_OBJECTS = \
@@ -283,7 +311,9 @@ backtester_OBJECTS = \
 "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o" \
 "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o" \
 "CMakeFiles/backtester.dir/src/trade/trade.cpp.o" \
-"CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o"
+"CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o" \
+"CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o" \
+"CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o"
 
 # External object files for target backtester
 backtester_EXTERNAL_OBJECTS =
@@ -301,10 +331,12 @@ backtester: CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o
 backtester: CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o
 backtester: CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o
 backtester: CMakeFiles/backtester.dir/src/trade/trade.cpp.o
-backtester: CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o
+backtester: CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o
+backtester: CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o
+backtester: CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o
 backtester: CMakeFiles/backtester.dir/build.make
 backtester: CMakeFiles/backtester.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable backtester"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/alikhanataniyazov/Projects/BackTester/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable backtester"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/backtester.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -9,11 +9,15 @@
 #include "rsi.h"
 #include "backtester.h"
 #include "oscilatorStrategyTypesEnum.h"
+#include "trendStrategy.h"
+#include "movingAverageStrategy.h"
+#include "trendTypeEnum.h"
 
 class TestSetup {
     private:
         std::vector<Candle*> candles;
         std::vector<Indicator*> indicators;
+        std::vector<TrendType> trendDirections;
         Backtester* backtester;
         double balance = 5000.0;
     
@@ -24,6 +28,8 @@ class TestSetup {
         void setCandles();
 
         double getBalance() { return balance; }
+
+        void identifyTrend();
         
         void setBalance();
         

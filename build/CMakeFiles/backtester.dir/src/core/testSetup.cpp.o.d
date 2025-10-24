@@ -810,4 +810,7 @@ CMakeFiles/backtester.dir/src/core/testSetup.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.h \
-  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h
+  /Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendTypeEnum.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendStrategy.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.h

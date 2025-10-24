@@ -24,8 +24,9 @@ void TestSetup::setCandles() {
     const std::string filePathBase = "data/";
     std::string filename;
     
-    std::cout << "Enter the file name: " << std::endl;
-    std::cin >> filename;
+    // std::cout << "Enter the file name: " << std::endl;
+    // std::cin >> filename;
+    filename = "SPX.csv";
 
     CSVLoader csvLoader(filePathBase + filename, ',');
     std::vector<Candle*> candlesData = csvLoader.load();
@@ -35,11 +36,18 @@ void TestSetup::setCandles() {
     std::cout << "Data was uploaded successfully" << std::endl;
 }
 
+void TestSetup::identifyTrend() {
+    MovingAverageStrategy movingAverageStrategy(200);
+    trendDirections = movingAverageStrategy.detect(candles);
+    std::cout << "trendDirections size: " << trendDirections.size() << " Candles size: " << candles.size() << std::endl;
+}
+
 void TestSetup::setBalance() {
     double balance;
 
-    std::cout << "Enter you initial balace: " << std::endl;
-    std::cin >> balance;
+    // std::cout << "Enter you initial balace: " << std::endl;
+    // std::cin >> balance;
+    balance = 5000.0;
 
     this->balance = balance;
 }
@@ -119,7 +127,7 @@ void TestSetup::initializeBacktester() {
     std::cout << std::endl;
 
     Backtester* backtester = new Backtester();
-    backtester->run(candles, indicators, balance);
+    backtester->run(candles, indicators, balance, trendDirections);
 
     std::cout << "Final balance: " << balance;
 }

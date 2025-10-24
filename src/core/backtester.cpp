@@ -111,6 +111,7 @@ void Backtester::prepareIndicators(
 ) {
     std::vector<std::thread> threads;
 
+    // launch calculations on seperate threads concurrently
     for (auto* indicator : indicators) {
         threads.emplace_back([indicator, &candles]() {
             indicator->calculate(candles);
@@ -183,6 +184,21 @@ bool Backtester::confirmSignalAcrossIndicators(
     return checkTradeSignal(indicatorTriggerStatus);
 }
 
+bool Backtester::confirmTrend(
+    std::vector<TrendType>& trendDirections,
+    TradeType& type,
+    int& index
+) {
+    if (
+        (trendDirections[index] == TrendType::BULLISH && type == TradeType::LONG) ||
+        (trendDirections[index] == TrendType::BEARISH && type == TradeType::SHORT)
+    ) {
+        return true;
+    }
+
+    return false;
+}
+
 void Backtester::executeTrade(
     std::vector<Candle*>& candles,
     TradeType& type,
@@ -194,7 +210,8 @@ void Backtester::executeTrade(
     double& trailingStopLoss
 ) {
     // open a new trade
-    Trade* trade = new Trade(type, balance * shareOfBalance / 100, candles[index]->close);
+    double amountOfMoneyInvest = (balance * shareOfBalance / 100) / candles[index]->close;
+    Trade* trade = new Trade(type, amountOfMoneyInvest, candles[index]->close);
     addTrade(trade);
     std::cout << type << " index: " << index << " trade was opened." << " Entry price: " 
         << trade->getEntryPrice()
@@ -216,6 +233,7 @@ void Backtester::processTradeSignals(
     std::vector<Candle*>& candles,
     std::vector<Indicator*>& indicators,
     const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& tradeSignals,
+    std::vector<TrendType>& trendDirections,
     std::unordered_map<std::string, bool>& indicatorTriggerStatus,
     double& balance,
     double& shareOfBalance,
@@ -247,9 +265,13 @@ void Backtester::processTradeSignals(
                 indicatorName, type, index
             );
 
+            bool confirmedTrend = confirmTrend(
+                trendDirections, type, index
+            );
+
             // if balance gets to 0 no further trades available
             if (balance <= minTradeAmount) break;
-            else if (confirmed) {
+            else if (confirmed && confirmedTrend) {
                 executeTrade(
                     candles, type, index, balance, 
                     shareOfBalance, maxStopLoss,
@@ -320,7 +342,10 @@ void Backtester::checkAllCloseOrders(
     }
 }
 
-void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double& balance) {
+void Backtester::run(
+    std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, 
+    double& balance, std::vector<TrendType>& trendDirections
+) {
     if (balance <= minTradeAmount) {
         std::cout << "Balance is less than minimum trade amount. You cannot make trades" << std::endl;
         return;
@@ -342,8 +367,8 @@ void Backtester::run(std::vector<Candle*>& candles, std::vector<Indicator*>& ind
 
     // 4. Process signals and run trades
     processTradeSignals(
-        candles, indicators, intersections, indicatorTriggerStatus,
-        balance, shareOfBalance, maxStopLoss, takeProfit, trailingStopLoss
+        candles, indicators, intersections, trendDirections,
+        indicatorTriggerStatus, balance, shareOfBalance, maxStopLoss, takeProfit, trailingStopLoss
     );
 
     std::cout << "Number of trades: " << trades.size() << std::endl;

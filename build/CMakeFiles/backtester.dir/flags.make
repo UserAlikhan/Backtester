@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/alikhanataniyazov/Projects/BackTester/src -I/Users/alikhanataniyazov/Projects/BackTester/src/core -I/Users/alikhanataniyazov/Projects/BackTester/src/data -I/Users/alikhanataniyazov/Projects/BackTester/src/indicators -I/Users/alikhanataniyazov/Projects/BackTester/src/statistics -I/Users/alikhanataniyazov/Projects/BackTester/src/trade -I/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss
+CXX_INCLUDES = -I/Users/alikhanataniyazov/Projects/BackTester/src -I/Users/alikhanataniyazov/Projects/BackTester/src/core -I/Users/alikhanataniyazov/Projects/BackTester/src/data -I/Users/alikhanataniyazov/Projects/BackTester/src/indicators -I/Users/alikhanataniyazov/Projects/BackTester/src/statistics -I/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss -I/Users/alikhanataniyazov/Projects/BackTester/src/trade -I/Users/alikhanataniyazov/Projects/BackTester/src/trend
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -Wall -Wextra -pedantic -g
 

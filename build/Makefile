@@ -441,29 +441,77 @@ src/trade/trade.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trade/trade.cpp.s
 .PHONY : src/trade/trade.cpp.s
 
-src/trend/trendDetection.o: src/trend/trendDetection.cpp.o
-.PHONY : src/trend/trendDetection.o
+src/trend/movingAverageStrategy.o: src/trend/movingAverageStrategy.cpp.o
+.PHONY : src/trend/movingAverageStrategy.o
 
 # target to build an object file
-src/trend/trendDetection.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.o
-.PHONY : src/trend/trendDetection.cpp.o
+src/trend/movingAverageStrategy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o
+.PHONY : src/trend/movingAverageStrategy.cpp.o
 
-src/trend/trendDetection.i: src/trend/trendDetection.cpp.i
-.PHONY : src/trend/trendDetection.i
+src/trend/movingAverageStrategy.i: src/trend/movingAverageStrategy.cpp.i
+.PHONY : src/trend/movingAverageStrategy.i
 
 # target to preprocess a source file
-src/trend/trendDetection.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.i
-.PHONY : src/trend/trendDetection.cpp.i
+src/trend/movingAverageStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.i
+.PHONY : src/trend/movingAverageStrategy.cpp.i
 
-src/trend/trendDetection.s: src/trend/trendDetection.cpp.s
-.PHONY : src/trend/trendDetection.s
+src/trend/movingAverageStrategy.s: src/trend/movingAverageStrategy.cpp.s
+.PHONY : src/trend/movingAverageStrategy.s
 
 # target to generate assembly for a file
-src/trend/trendDetection.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendDetection.cpp.s
-.PHONY : src/trend/trendDetection.cpp.s
+src/trend/movingAverageStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.s
+.PHONY : src/trend/movingAverageStrategy.cpp.s
+
+src/trend/swingStrategy.o: src/trend/swingStrategy.cpp.o
+.PHONY : src/trend/swingStrategy.o
+
+# target to build an object file
+src/trend/swingStrategy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o
+.PHONY : src/trend/swingStrategy.cpp.o
+
+src/trend/swingStrategy.i: src/trend/swingStrategy.cpp.i
+.PHONY : src/trend/swingStrategy.i
+
+# target to preprocess a source file
+src/trend/swingStrategy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.i
+.PHONY : src/trend/swingStrategy.cpp.i
+
+src/trend/swingStrategy.s: src/trend/swingStrategy.cpp.s
+.PHONY : src/trend/swingStrategy.s
+
+# target to generate assembly for a file
+src/trend/swingStrategy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.s
+.PHONY : src/trend/swingStrategy.cpp.s
+
+src/trend/trendEnsemble.o: src/trend/trendEnsemble.cpp.o
+.PHONY : src/trend/trendEnsemble.o
+
+# target to build an object file
+src/trend/trendEnsemble.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o
+.PHONY : src/trend/trendEnsemble.cpp.o
+
+src/trend/trendEnsemble.i: src/trend/trendEnsemble.cpp.i
+.PHONY : src/trend/trendEnsemble.i
+
+# target to preprocess a source file
+src/trend/trendEnsemble.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.i
+.PHONY : src/trend/trendEnsemble.cpp.i
+
+src/trend/trendEnsemble.s: src/trend/trendEnsemble.cpp.s
+.PHONY : src/trend/trendEnsemble.s
+
+# target to generate assembly for a file
+src/trend/trendEnsemble.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/backtester.dir/build.make CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.s
+.PHONY : src/trend/trendEnsemble.cpp.s
 
 # Help Target
 help:
@@ -513,9 +561,15 @@ help:
 	@echo "... src/trade/trade.o"
 	@echo "... src/trade/trade.i"
 	@echo "... src/trade/trade.s"
-	@echo "... src/trend/trendDetection.o"
-	@echo "... src/trend/trendDetection.i"
-	@echo "... src/trend/trendDetection.s"
+	@echo "... src/trend/movingAverageStrategy.o"
+	@echo "... src/trend/movingAverageStrategy.i"
+	@echo "... src/trend/movingAverageStrategy.s"
+	@echo "... src/trend/swingStrategy.o"
+	@echo "... src/trend/swingStrategy.i"
+	@echo "... src/trend/swingStrategy.s"
+	@echo "... src/trend/trendEnsemble.o"
+	@echo "... src/trend/trendEnsemble.i"
+	@echo "... src/trend/trendEnsemble.s"
 .PHONY : help
 
 

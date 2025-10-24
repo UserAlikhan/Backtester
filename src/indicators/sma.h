@@ -18,7 +18,11 @@ class SMA : public Indicator, public IntersectionIndicator {
         
         std::vector<double>& getDataPeriod2() { return dataPeriod2; }
 
+        // main calculation method used in Indicators
         void calculate(std::vector<Candle*>& candles) override;
+
+        // helper calculation. calculates data for only one period (used in trend detection)
+        static std::vector<double> calculateForOnePeriod(const std::vector<Candle*>& candles, int period);
 
         // returns intersection type and intersection index from data
         std::vector<std::pair<TradeType, int>> findIntersections() override;

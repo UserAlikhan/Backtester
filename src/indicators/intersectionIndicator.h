@@ -2,6 +2,7 @@
 #include <iostream>
 #include "intersectionEnum.h"
 #include "tradeTypeEnum.h"
+#include "candle.h"
 
 class IntersectionIndicator {
     public:

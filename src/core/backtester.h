@@ -11,6 +11,7 @@
 #include "intersectionIndicator.h"
 #include "oscilatorIndicator.h"
 #include "oscilatorStrategyTypesEnum.h"
+#include "trendTypeEnum.h"
 
 class Backtester {
     private:
@@ -56,6 +57,7 @@ class Backtester {
             std::vector<Candle*>& candles,
             std::vector<Indicator*>& indicators,
             const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
+            std::vector<TrendType>& trendDirections,
             std::unordered_map<std::string, bool>& indicatorTriggerStatus,
             double& balance,
             double& shareOfBalance,
@@ -70,6 +72,12 @@ class Backtester {
             const std::vector<std::pair<std::string, std::vector<std::pair<TradeType, int>>>>& intersections,
             std::unordered_map<std::string, bool>& indicatorTriggerStatus,
             const std::string& mainIndicator,
+            TradeType& type,
+            int& index
+        );
+
+        bool confirmTrend(
+            std::vector<TrendType>& trendDirections,
             TradeType& type,
             int& index
         );
@@ -96,5 +104,8 @@ class Backtester {
         );
 
         // run backtest
-        void run(std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, double& balance);
+        void run(
+            std::vector<Candle*>& candles, std::vector<Indicator*>& indicators, 
+            double& balance, std::vector<TrendType>& trendDirections
+        );
 };

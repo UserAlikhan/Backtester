@@ -806,6 +806,7 @@ CMakeFiles/backtester.dir/src/core/backtester.cpp.o: \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/intersectionIndicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorIndicator.h \
   /Users/alikhanataniyazov/Projects/BackTester/src/indicators/oscilatorStrategyTypesEnum.h \
+  /Users/alikhanataniyazov/Projects/BackTester/src/trend/trendTypeEnum.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/thread \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/formatter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/jthread.h \

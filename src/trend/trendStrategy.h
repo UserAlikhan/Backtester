@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include "candle.h"
+#include "trendTypeEnum.h"
 
 /*
 Ways to detect trend:
@@ -17,7 +19,7 @@ Ways to detect trend:
 // ADX (Average Directional Index) supports the result, then trend is confirmed
 
 // Trend detection is really important, since will be used in Swing / Trend Trading type strategies
-class TrendDetection {
-    private:
-        int threshold;
+class TrendStrategy {
+    public:
+        virtual std::vector<TrendType> detect(const std::vector<Candle*>& candles) = 0;
 };
