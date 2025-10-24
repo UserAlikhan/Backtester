@@ -111,11 +111,20 @@ void Backtester::prepareIndicators(
 ) {
     std::vector<std::thread> threads;
 
-    for (auto* indicator: indicators) {
-        // instantiate indicators on multiple threads
+    for (auto* indicator : indicators) {
         threads.emplace_back([indicator, &candles]() {
             indicator->calculate(candles);
         });
+    }
+
+    // wait for all threads to finish
+    for (auto& t : threads) {
+        if (t.joinable()) {
+            t.join();
+        }
+    }
+
+    for (auto* indicator: indicators) {
         // fill hashmap with indicator name
         indicatorTriggerStatus[indicator->getName()] = false;
 
@@ -131,13 +140,6 @@ void Backtester::prepareIndicators(
             } else if (oscilator->getStrategy() == OscilatorStrategyTypes::DIVERGENCE) {
                 tradeSignals.push_back({indicator->getName(), oscilator->detectDivergence()});
             }
-        }
-    }
-
-    // wait for all threads to finish
-    for (auto& t : threads) {
-        if (t.joinable()) {
-            t.join();
         }
     }
 }
