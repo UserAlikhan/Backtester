@@ -1,5 +1,7 @@
 #include "swingStrategy.h"
 #include <iostream>
+#include <vector>
+#include <limits>
 
 SwingStrategy::SwingStrategy(int lookback) : lookback(lookback) {}
 
@@ -17,7 +19,7 @@ std::vector<double>& SwingStrategy::detect(const std::vector<Candle*>& candles) 
     std::vector<double> swings;
 
     // SIZE_MAX is maximum possible value for size_t
-    size_t lastChanged = SIZE_MAX;
+    size_t lastChanged = std::numeric_limits<size_t>::max();
     double lastChangedValue = 0.0;
 
     for (size_t i = 1; i + 1 < candles.size(); ++i) {
@@ -38,7 +40,7 @@ std::vector<double>& SwingStrategy::detect(const std::vector<Candle*>& candles) 
             else if (avg < 0.0) trend = -1.0;
 
             // fill the space between last swing and current if lastChangedValue was not neutral (0.0)
-            if (lastChanged != SIZE_MAX && lastChangedValue != 0.0) {
+            if (lastChanged != std::numeric_limits<size_t>::max() && lastChangedValue != 0.0) {
                 for (size_t j = lastChanged + 1; j < i; ++j) {
                     strategyData[j] = lastChangedValue;
                 }

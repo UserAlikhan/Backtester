@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "candle.h"
 #include "trendTypeEnum.h"
 

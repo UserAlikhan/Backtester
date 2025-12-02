@@ -8,22 +8,22 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/alikhanataniyazov/Projects/BackTester/src/core/backtester.cpp" "CMakeFiles/backtester.dir/src/core/backtester.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/core/backtester.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/core/testSetup.cpp" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/data/csvLoader.cpp" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/ema.cpp" "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/ema.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/rsi.cpp" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/indicators/sma.cpp" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/main.cpp" "CMakeFiles/backtester.dir/src/main.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/main.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/statistics/statistic.cpp" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/closeOrder.cpp" "CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/fixedStopLoss.cpp" "CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/takeProfit.cpp" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/stopLoss/trailingStopLoss.cpp" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/trade/trade.cpp" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/trend/movingAverageStrategy.cpp" "CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/trend/swingStrategy.cpp" "CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o.d"
-  "/Users/alikhanataniyazov/Projects/BackTester/src/trend/trendEnsemble.cpp" "CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/core/backtester.cpp" "CMakeFiles/backtester.dir/src/core/backtester.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/core/backtester.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/core/testSetup.cpp" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/core/testSetup.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/data/csvLoader.cpp" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/data/csvLoader.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/indicators/EMA.cpp" "CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/EMA.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/indicators/rsi.cpp" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/rsi.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/indicators/sma.cpp" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/indicators/sma.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/main.cpp" "CMakeFiles/backtester.dir/src/main.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/main.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/statistics/statistic.cpp" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/statistics/statistic.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/stopLoss/closeOrder.cpp" "CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/closeOrder.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/stopLoss/fixedStopLoss.cpp" "CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/fixedStopLoss.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/stopLoss/takeProfit.cpp" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/takeProfit.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/stopLoss/trailingStopLoss.cpp" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/stopLoss/trailingStopLoss.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/trade/trade.cpp" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trade/trade.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/trend/movingAverageStrategy.cpp" "CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/movingAverageStrategy.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/trend/swingStrategy.cpp" "CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/swingStrategy.cpp.o.d"
+  "/home/alikhan-ataniyazov/Projects/Backtester/src/trend/trendEnsemble.cpp" "CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o" "gcc" "CMakeFiles/backtester.dir/src/trend/trendEnsemble.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -12,6 +12,7 @@
 #include "oscilatorIndicator.h"
 #include "oscilatorStrategyTypesEnum.h"
 #include "trendTypeEnum.h"
+#include <unordered_map>
 
 class Backtester {
     private:
